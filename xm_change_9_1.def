@@ -1,1092 +1,0 @@
-char-set: UTF-8
-#
-#  File exported Thu Nov 16 14:56:53 PST 2017
-#
-begin filter
-   name           : XM:AP:Change_Workflow_Notification
-   timestamp      : 1510851727
-   owner          : Demo
-   last-changed   : aradmin
-   filter-op      : 0
-   enable         : 1
-   filter-order   : 500
-   wk-conn-type   : 1
-   schema-name    : CHG:ChangeAPDetailSignature
-   export-version : 12
-   action {
-      push-field  : 0\1\@\9\XM:Action\1\536870915\0\4\6\101\4\8\Approval\
-      push-field  : 1\1\@\9\XM:Action\1\536870914\0\4\6\101\4\3\Add\
-      push-field  : 2\1\@\9\XM:Action\1\536870913\0\4\6\102\1\@\1\@\1\1\0\1\4\
-      push-field  : 3\1\@\9\XM:Action\1\8\0\4\6\104\1\104\1\101\4\24\Sending Change Approval \102\1\@\1\@\1\1\0\1\4\101\4\12\ to xMatters\
-   }
-   object-prop    : 3\90016\4\1\1\90015\2\4\90002\4\24\Remedy Change Management\
-   errhandler-opt : 0
-end
-begin filter
-   name           : XM:Change_NewStatus_899
-   timestamp      : 1510851727
-   owner          : Demo
-   last-changed   : aradmin
-   filter-op      : 6
-   enable         : 1
-   filter-order   : 899
-   wk-conn-type   : 1
-   schema-name    : CHG:Infrastructure Change
-   export-version : 12
-   filter-query   : 4\6\99\7\51\7\
-   action {
-      push-field  : 0\1\@\9\XM:Action\1\536870915\0\4\6\101\4\6\Change\
-      push-field  : 1\1\@\9\XM:Action\1\536870914\0\4\6\101\4\3\Add\
-      push-field  : 2\1\@\9\XM:Action\1\536870913\0\4\6\102\1\@\1\@\1\1000000182\0\1\4\
-      push-field  : 3\1\@\9\XM:Action\1\8\0\4\6\104\1\104\1\101\4\15\Sending Change \102\1\@\1\@\1\1000000182\0\1\4\101\4\12\ to xMatters\
-   }
-   object-prop    : 3\90016\4\1\1\90015\2\4\90002\4\24\Remedy Change Management\
-   errhandler-opt : 0
-end
-begin filter
-   name           : XM:Change_TerminateEventsWhenApprovalStatusApproved
-   timestamp      : 1510851727
-   owner          : Demo
-   last-changed   : aradmin
-   filter-op      : 95
-   enable         : 1
-   filter-order   : 899
-   wk-conn-type   : 1
-   schema-name    : CHG:ChangeAPDetailSignature
-   export-version : 12
-   filter-query   : 2\2\2\2\1\4\1\99\13191\2\6\1\4\6\51\13191\2\6\1\1\4\1\99\13191\2\6\2\4\6\51\13191\2\6\2\1\4\1\99\13191\2\6\7\4\6\51\13191\2\6\7\1\4\1\99\13191\2\6\5\4\6\
-   filter-query   : 51\13191\2\6\5\1\4\1\99\13191\2\6\6\4\6\51\13191\2\6\6\
-   action {
-      push-field  : 0\1\@\9\XM:Action\1\536870915\0\4\6\101\4\8\Approval\
-      push-field  : 1\1\@\9\XM:Action\1\536870914\0\4\6\101\4\6\Delete\
-      push-field  : 2\1\@\9\XM:Action\1\536870913\0\4\6\102\1\@\1\@\1\1\0\1\4\
-      push-field  : 3\1\@\9\XM:Action\1\8\0\4\6\104\1\104\1\104\1\101\4\24\Sending Delete Incident \102\1\@\1\@\1\1\0\1\4\101\4\61\ to xMatters because the approval status ha
-      push-field  : 3\s been changed to \102\1\@\1\@\1\13191\0\1\4\
-   }
-   object-prop    : 3\90016\4\1\1\90015\2\4\90002\4\24\Remedy Change Management\
-   errhandler-opt : 0
-end
-begin filter
-   name           : XM:EI:ChangeInjection_100
-   timestamp      : 1510857640
-   owner          : Demo
-   last-changed   : aradmin
-   filter-op      : 4
-   enable         : 1
-   filter-order   : 100
-   wk-conn-type   : 1
-   schema-name    : XM:Event Injection
-   export-version : 12
-   filter-query   : 1\4\4\99\536870916\2\6\3\2\4\1\99\536870914\2\4\6\Change\4\1\99\536870914\2\4\8\Approval\
-   action {
-      set-field   : 0\536870915\101\2\1\
-   }
-   action {
-      set-field   : 0\8\108\20\ARSYS.ARF.WEBSERVICE\20\101\4\36\c4245525-eeff-460b-a51a-79820047329f\101\4\20\WebServiceSoapClient\101\4\4\call\101\4\39\([Ljava/lang/String;)
-      set-field   : 0\Ljava/lang/String;\101\4\72\C:\Documents and Settings\Administrator\Desktop\apia_http_bmcremedy.wsdl\101\4\25\apia_http_bmcRemedyChange\101\4\615\<?xml 
-      set-field   : 0\version="1.0" encoding="UTF-8"?><operation bindingStyle="document" name="triggerChange"    soapActionURI="triggerChange" type="create" useStyle="liter
-      set-field   : 0\al">    <arOptions>        <setOptions>            <type>setFirst</type>            <documentType>full</documentType>        </setOptions>    </ar
-      set-field   : 0\Options>    <inputMapping name="TriggerRequest"        namespace="http://www.xmatters.com/apia_http_bmcremedy/" topLevelElement="TriggerRequest"/>   
-      set-field   : 0\ <outputMapping name="TriggerResponse"        namespace="http://www.xmatters.com/apia_http_bmcremedy/" topLevelElement="TriggerResponse"/></operation>
-      set-field   : 0\\101\4\58\http://10.2.0.139:8081/http/applications_bmcremedychange50\101\4\44\http://www.xmatters.com/apia_http_bmcremedy/\101\4\1662\<?xml version="1.
-      set-field   : 0\0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="TriggerRequest" schemaSource="imported">    <
-      set-field   : 0\formMapping>        <form distinguishingKeyId="1" foreignKeyId="1"            formName="XM:Event Injection" primaryKeyId="1"/>        <element all="f
-      set-field   : 0\alse" dataType="ROOT" default="" maxOccurs="1"            minOccurs="1" name="ROOT" targetNamespace="http://www.xmatters.com/apia_http_bmcremedy/">   
-      set-field   : 0\         <element dataType="string" default=""                enumValues="Add,Update,Delete,Load" form="qualified"                maxOccurs="1" minOcc
-      set-field   : 0\urs="1" name="action"                nillable="false"                targetNamespace="http://www.xmatters.com/apia_http_bmcremedy/" xmlType="false"> 
-      set-field   : 0\               <fieldMapping arFieldId="536870916" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" d
-      set-field   : 0\efault="" form="qualified"                maxOccurs="1" minOccurs="1" name="id" nillable="false"                targetNamespace="http://www.xmatters.c
-      set-field   : 0\om/apia_http_bmcremedy/" xmlType="false">                <fieldMapping arFieldId="536870913" arFieldPart="" defaultAttachName=""/>            </elemen
-      set-field   : 0\t>            <element dataType="string" default="" form="qualified"                maxOccurs="1" minOccurs="1" name="requestType"                nil
-      set-field   : 0\lable="false"                targetNamespace="http://www.xmatters.com/apia_http_bmcremedy/" xmlType="false">                <fieldMapping arFieldId="5
-      set-field   : 0\36870914" arFieldPart="" defaultAttachName=""/>            </element>        </element>    </formMapping></arDocMapping>\101\4\1296\<?xml version="
-      set-field   : 0\1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="TriggerResponse" schemaSource="imported">  
-      set-field   : 0\  <formMapping>        <form distinguishingKeyId="1" foreignKeyId="1"            formName="XM:Event Injection" primaryKeyId="1"/>        <element all
-      set-field   : 0\="false" dataType="ROOT" default="" maxOccurs="1"            minOccurs="1" name="ROOT" targetNamespace="http://www.xmatters.com/apia_http_bmcremedy/">
-      set-field   : 0\            <element dataType="string" default=""                enumValues="New,Error,Received" form="qualified"                maxOccurs="1" minOccu
-      set-field   : 0\rs="1" name="status"                nillable="false"                targetNamespace="http://www.xmatters.com/apia_http_bmcremedy/" xmlType="false">  
-      set-field   : 0\              <fieldMapping arFieldId="7" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default=""
-      set-field   : 0\ form="qualified"                maxOccurs="1" minOccurs="1" name="description"                nillable="false"                targetNamespace="http:
-      set-field   : 0\//www.xmatters.com/apia_http_bmcremedy/" xmlType="false">                <fieldMapping arFieldId="8" arFieldPart="" defaultAttachName=""/>            
-      set-field   : 0\</element>        </element>    </formMapping></arDocMapping>\101\4\29\apia_http_bmcRemedyChangeSOAP\101\0\101\0\101\0\101\0\101\0\101\0\101\0\101\0
-      set-field   : 0\\8\
-   }
-   object-prop    : 2\90016\4\1\1\90015\2\4\
-   errhandler-opt : 1
-   errhandler-name: XM:EI:EventInjectionError
-end
-begin escalation
-   name           : XM:Change Injection Retry
-   timestamp      : 1510857538
-   owner          : Demo
-   last-changed   : aradmin
-   enable         : 1
-   escl-tmType    : 1
-   export-version : 12
-   escl-interval  : 120
-   wk-conn-type   : 1
-   schema-name    : XM:Event Injection
-   escl-query     : 1\1\1\1\2\4\1\1\7\2\6\0\4\1\1\7\2\6\1\4\2\1\536870915\2\2\0\4\4\1\536870915\2\2\3\4\6\1\536870916\2\6\3\2\4\1\1\536870914\2\4\6\Change\4\1\1\536870914\2\
-   escl-query     : 4\8\Approval\
-   action {
-      set-field   : 0\536870915\104\1\102\1\@\1\@\1\536870915\0\1\4\101\2\1\
-   }
-   action {
-      set-field   : 0\8\108\20\ARSYS.ARF.WEBSERVICE\20\101\4\36\c4245525-eeff-460b-a51a-79820047329f\101\4\20\WebServiceSoapClient\101\4\4\call\101\4\39\([Ljava/lang/String;)
-      set-field   : 0\Ljava/lang/String;\101\4\72\C:\Documents and Settings\Administrator\Desktop\apia_http_bmcremedy.wsdl\101\4\25\apia_http_bmcRemedyChange\101\4\615\<?xml 
-      set-field   : 0\version="1.0" encoding="UTF-8"?><operation bindingStyle="document" name="triggerChange"    soapActionURI="triggerChange" type="create" useStyle="liter
-      set-field   : 0\al">    <arOptions>        <setOptions>            <type>setFirst</type>            <documentType>full</documentType>        </setOptions>    </ar
-      set-field   : 0\Options>    <inputMapping name="TriggerRequest"        namespace="http://www.xmatters.com/apia_http_bmcremedy/" topLevelElement="TriggerRequest"/>   
-      set-field   : 0\ <outputMapping name="TriggerResponse"        namespace="http://www.xmatters.com/apia_http_bmcremedy/" topLevelElement="TriggerResponse"/></operation>
-      set-field   : 0\\101\4\58\http://10.2.0.139:8081/http/applications_bmcremedychange50\101\4\44\http://www.xmatters.com/apia_http_bmcremedy/\101\4\1662\<?xml version="1.
-      set-field   : 0\0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="TriggerRequest" schemaSource="imported">    <
-      set-field   : 0\formMapping>        <form distinguishingKeyId="1" foreignKeyId="1"            formName="XM:Event Injection" primaryKeyId="1"/>        <element all="f
-      set-field   : 0\alse" dataType="ROOT" default="" maxOccurs="1"            minOccurs="1" name="ROOT" targetNamespace="http://www.xmatters.com/apia_http_bmcremedy/">   
-      set-field   : 0\         <element dataType="string" default=""                enumValues="Add,Update,Delete,Load" form="qualified"                maxOccurs="1" minOcc
-      set-field   : 0\urs="1" name="action"                nillable="false"                targetNamespace="http://www.xmatters.com/apia_http_bmcremedy/" xmlType="false"> 
-      set-field   : 0\               <fieldMapping arFieldId="536870916" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" d
-      set-field   : 0\efault="" form="qualified"                maxOccurs="1" minOccurs="1" name="id" nillable="false"                targetNamespace="http://www.xmatters.c
-      set-field   : 0\om/apia_http_bmcremedy/" xmlType="false">                <fieldMapping arFieldId="536870913" arFieldPart="" defaultAttachName=""/>            </elemen
-      set-field   : 0\t>            <element dataType="string" default="" form="qualified"                maxOccurs="1" minOccurs="1" name="requestType"                nil
-      set-field   : 0\lable="false"                targetNamespace="http://www.xmatters.com/apia_http_bmcremedy/" xmlType="false">                <fieldMapping arFieldId="5
-      set-field   : 0\36870914" arFieldPart="" defaultAttachName=""/>            </element>        </element>    </formMapping></arDocMapping>\101\4\1296\<?xml version="
-      set-field   : 0\1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="TriggerResponse" schemaSource="imported">  
-      set-field   : 0\  <formMapping>        <form distinguishingKeyId="1" foreignKeyId="1"            formName="XM:Event Injection" primaryKeyId="1"/>        <element all
-      set-field   : 0\="false" dataType="ROOT" default="" maxOccurs="1"            minOccurs="1" name="ROOT" targetNamespace="http://www.xmatters.com/apia_http_bmcremedy/">
-      set-field   : 0\            <element dataType="string" default=""                enumValues="New,Error,Received" form="qualified"                maxOccurs="1" minOccu
-      set-field   : 0\rs="1" name="status"                nillable="false"                targetNamespace="http://www.xmatters.com/apia_http_bmcremedy/" xmlType="false">  
-      set-field   : 0\              <fieldMapping arFieldId="7" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default=""
-      set-field   : 0\ form="qualified"                maxOccurs="1" minOccurs="1" name="description"                nillable="false"                targetNamespace="http:
-      set-field   : 0\//www.xmatters.com/apia_http_bmcremedy/" xmlType="false">                <fieldMapping arFieldId="8" arFieldPart="" defaultAttachName=""/>            
-      set-field   : 0\</element>        </element>    </formMapping></arDocMapping>\101\4\29\apia_http_bmcRemedyChangeSOAP\101\0\101\0\101\0\101\0\101\0\101\0\101\0\101\0
-      set-field   : 0\\8\
-   }
-   object-prop    : 2\90016\4\1\1\90015\2\4\
-end
-begin container
-   name           : AP:Workflow Notifications Guide
-   type           : 4
-   num-references : 0
-   timestamp      : 1510865993
-   owner          : Remedy Application Service
-   owning-obj     : 1\2\9\AP:Detail\
-   last-changed   : aradmin
-   export-version : 12
-   object-prop    : 1\90015\2\1\
-end
-begin container
-   name           : AP:Workflow Notifications Guide__o
-   type           : 4
-   num-references : 1
-   timestamp      : 1510866045
-   owner          : Remedy Application Service
-   owning-obj     : 2\2\9\AP:Detail\2\27\CHG:ChangeAPDetailSignature\
-   last-changed   : aradmin
-   export-version : 12
-   object-prop    : 4\60069\8\0\60070\8\0\90016\4\1\1\90015\2\2\
-reference {
-   type           : 3
-   datatype       : 0
-   object         : XM:AP:Change_Workflow_Notification
-}
-end
-begin container
-   name           : XM:Change Packing List
-   type           : 3
-   num-references : 13
-   timestamp      : 1510872936
-   owner          : Demo
-   last-changed   : aradmin
-   export-version : 12
-   label          : xMatters Change Packing List
-   description    : This packing list includes xMatters objects required by the change integration module.  It depends on the objects in XM:Foundation Packing List.
-   object-prop    : 2\90016\4\1\1\90015\2\4\
-reference {
-   type           : 4
-   datatype       : 0
-   object         : XM:Change Injection Retry
-}
-reference {
-   type           : 32801
-   datatype       : 1
-   value          : 0\
-}
-reference {
-   type           : 6
-   datatype       : 0
-   object         : XM_CHG_ChangeInterface_WS
-}
-reference {
-   type           : 32801
-   datatype       : 1
-   value          : 0\
-}
-reference {
-   type           : 6
-   datatype       : 0
-   object         : XM_CHG_InfrastructureChange_WS
-}
-reference {
-   type           : 32801
-   datatype       : 1
-   value          : 0\
-}
-reference {
-   type           : 6
-   datatype       : 0
-   object         : XM_CHG_ChangeAPDetailSignature_WS
-}
-reference {
-   type           : 3
-   datatype       : 0
-   object         : XM:AP:Change_Workflow_Notification
-}
-reference {
-   type           : 3
-   datatype       : 0
-   object         : XM:Change_NewStatus_899
-}
-reference {
-   type           : 3
-   datatype       : 0
-   object         : XM:EI:ChangeInjection_100
-}
-reference {
-   type           : 3
-   datatype       : 0
-   object         : XM:Change_TerminateEventsWhenApprovalStatusApproved
-}
-reference {
-   type           : 32793
-   datatype       : 1
-   value          : 0\
-}
-reference {
-   type           : 6
-   datatype       : 0
-   object         : AP:Workflow Notifications Guide
-}
-end
-begin container
-   name           : XM_CHG_ChangeAPDetailSignature_WS
-   type           : 5
-   num-references : 16
-   timestamp      : 1510856402
-   owner          : Demo
-   owning-obj     : 1\2\27\CHG:ChangeAPDetailSignature\
-   last-changed   : aradmin
-   export-version : 12
-   permission     : 0\1
-   description    : xMatters web service to update the Approval Status of changes.
-   object-prop    : 3\90016\4\1\1\90015\2\4\90002\4\24\Remedy Change Management\
-reference {
-   type           : 32797
-   datatype       : 1
-   value          : 4\220\<?xml version="1.0"?><portProperties name="XM_CHG_ChangeAPDetailSignature"><portType name=""/><xmlSchemaSource name="embedded"/><externalSchema na
-   value          : me=""/><portName name="XM_CHG_ChangeAPDetailSignature"/></portProperties>\
-   ref-groups     : 0 
-}
-reference {
-   type           : 32798
-   datatype       : 1
-   value          : 4\576\<?xml version="1.0" encoding="UTF-8"?><operation name="SetApprovalStatus"    qualification="'1' = XPATH(/ROOT/Request_ID)" type="set">    <arOpt
-   value          : ions>        <setOptions>            <type>setAll</type>            <documentType>full</documentType>        </setOptions>    </arOptions>    <inpu
-   value          : tMapping name="InputMapping1"        namespace="XM_CHG_ChangeAPDetailSignature_WS" topLevelElement="SetApprovalStatus"/>    <outputMapping name="Output
-   value          : Mapping1"        namespace="XM_CHG_ChangeAPDetailSignature_WS" topLevelElement="SetApprovalStatusResponse"/></operation>\
-   ref-groups     : 0 
-}
-reference {
-   type           : 32798
-   datatype       : 1
-   value          : 4\636\<?xml version="1.0" encoding="UTF-8"?><operation maxLimit="XPATH(/ROOT/maxLimit)" name="GetApprovals"    qualification="XPATH(/ROOT/Qualification
-   value          : )"    startRecord="XPATH(/ROOT/startRecord)" type="get">    <arOptions>        <setOptions>            <type>setFirst</type>            <documentTyp
-   value          : e>full</documentType>        </setOptions>    </arOptions>    <inputMapping name="InputMapping3"        namespace="XM_CHG_ChangeAPDetailSignature_WS"
-   value          :  topLevelElement="GetApprovals"/>    <outputMapping name="OutputMapping3"        namespace="XM_CHG_ChangeAPDetailSignature_WS" topLevelElement="GetAppr
-   value          : ovalsResponse"/></operation>\
-   ref-groups     : 0 
-}
-reference {
-   type           : 32798
-   datatype       : 1
-   value          : 4\594\<?xml version="1.0" encoding="UTF-8"?><operation name="SetApproverSignature"    qualification="'Request ID' = XPATH(/ROOT/Request_ID)" type="set"
-   value          : >    <arOptions>        <setOptions>            <type>setAll</type>            <documentType>full</documentType>        </setOptions>    </arOption
-   value          : s>    <inputMapping name="InputMapping4"        namespace="XM_CHG_ChangeAPDetailSignature_WS" topLevelElement="SetApproverSignature"/>    <outputMappi
-   value          : ng name="OutputMapping4"        namespace="XM_CHG_ChangeAPDetailSignature_WS" topLevelElement="SetApproverSignatureResponse"/></operation>\
-   ref-groups     : 0 
-}
-reference {
-   type           : 32828
-   datatype       : 1
-   value          : 4\0\\
-   ref-groups     : 0 
-}
-reference {
-   type           : 32843
-   datatype       : 1
-   value          : 0\
-   ref-groups     : 0 
-}
-reference {
-   type           : 32799
-   datatype       : 1
-   value          : 4\166\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="OutputMapping1" schemaSo
-   value          : urce="generated"/>\
-   ref-groups     : 0 
-}
-reference {
-   type           : 32799
-   datatype       : 1
-   value          : 4\3715\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="OutputMapping2" schemaS
-   value          : ource="generated">    <element all="false" dataType="ROOT" default="" maxOccurs="1"        minOccurs="1" name="ROOT" targetNamespace="urn:XM_CHG_Change
-   value          : APDetailSignature_WS">        <formMapping>            <form distinguishingKeyId="1" foreignKeyId="1"                formName="CHG:ChangeAPDetailSigna
-   value          : ture" primaryKeyId="1"/>            <element all="" dataType="" default="" maxOccurs="unbounded"                minOccurs="1" name="getListValues">   
-   value          :              <element dataType="string" default=""                    enumValues="Pending,Approved,Rejected,Hold,More Information,Cancelled,Error,Closed
-   value          : "                    maxOccurs="1" minOccurs="1" name="Approval_Status2"                    nillable="false" xmlType="false">                    <fiel
-   value          : dMapping arFieldId="13191" arFieldPart="" defaultAttachName=""/>                </element>                <element dataType="string" default=""       
-   value          :              enumValues="Urgent,Normal,Low" maxOccurs="1"                    minOccurs="1" name="Approval_Priority"                    nillable="false"
-   value          :  xmlType="false">                    <fieldMapping arFieldId="13000" arFieldPart="" defaultAttachName=""/>                </element>                <e
-   value          : lement dataType="string" default=""                    enumValues="One Must Sign,All Must Sign"                    maxOccurs="1" minOccurs="1"        
-   value          :             name="If_Multiple_Approvers" nillable="false" xmlType="false">                    <fieldMapping arFieldId="13208" arFieldPart="" defaultAtta
-   value          : chName=""/>                </element>                <element dataType="string" default="" maxOccurs="1"                    minOccurs="1" name="Approv
-   value          : ers" nillable="false" xmlType="false">                    <fieldMapping arFieldId="13207" arFieldPart="" defaultAttachName=""/>                </elemen
-   value          : t>                <element dataType="string" default="" maxOccurs="1"                    minOccurs="1" name="Infrastructure_Change_ID"                
-   value          :     nillable="false" xmlType="false">                    <fieldMapping arFieldId="1000000182" arFieldPart="" defaultAttachName=""/>                </el
-   value          : ement>                <element dataType="string" default="" maxOccurs="1"                    minOccurs="1" name="Approval_Phase" nillable="false" xmlTy
-   value          : pe="false">                    <fieldMapping arFieldId="1000003143" arFieldPart="" defaultAttachName=""/>                </element>                <el
-   value          : ement dataType="string" default=""                    enumValues="Draft,Request For Authorization,Request For Change,Planning In Progress,Scheduled For 
-   value          : Review,Scheduled For Approval,Scheduled,Implementation In Progress,Pending,Rejected,Completed,Closed,Cancelled"                    maxOccurs="1" minOccu
-   value          : rs="1"                    name="Change_Request_Status" nillable="false" xmlType="false">                    <fieldMapping arFieldId="7" arFieldPart="" 
-   value          : defaultAttachName=""/>                </element>                <element dataType="string" default="" maxOccurs="1"                    minOccurs="1" n
-   value          : ame="Request_ID" nillable="false" xmlType="false">                    <fieldMapping arFieldId="1" arFieldPart="" defaultAttachName=""/>                
-   value          : </element>                <element dataType="string" default="" maxOccurs="1"                    minOccurs="1" name="Process" nillable="false" xmlType=
-   value          : "false">                    <fieldMapping arFieldId="10000" arFieldPart="" defaultAttachName=""/>                </element>            </element>    
-   value          :     </formMapping>    </element></arDocMapping>\
-   ref-groups     : 0 
-}
-reference {
-   type           : 32799
-   datatype       : 1
-   value          : 4\4059\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="OutputMapping3" schemaS
-   value          : ource="generated">    <element all="false" dataType="ROOT" default="" maxOccurs="1"        minOccurs="1" name="ROOT" targetNamespace="urn:XM_CHG_Change
-   value          : APDetailSignature_WS">        <formMapping>            <form distinguishingKeyId="1" foreignKeyId="1"                formName="CHG:ChangeAPDetailSigna
-   value          : ture" primaryKeyId="1"/>            <element all="" dataType="" default="" maxOccurs="unbounded"                minOccurs="1" name="getListValues">   
-   value          :              <element dataType="string" default=""                    enumValues="Pending,Approved,Rejected,Hold,More Information,Cancelled,Error,Closed
-   value          : "                    maxOccurs="1" minOccurs="1" name="Approval_Status2"                    nillable="true" xmlType="false">                    <field
-   value          : Mapping arFieldId="13191" arFieldPart="" defaultAttachName=""/>                </element>                <element dataType="string" default=""        
-   value          :             enumValues="Urgent,Normal,Low" maxOccurs="1"                    minOccurs="1" name="Approval_Priority"                    nillable="true" x
-   value          : mlType="false">                    <fieldMapping arFieldId="13000" arFieldPart="" defaultAttachName=""/>                </element>                <ele
-   value          : ment dataType="string" default=""                    enumValues="One Must Sign,All Must Sign"                    maxOccurs="1" minOccurs="1"          
-   value          :           name="If_Multiple_Approvers" nillable="true" xmlType="false">                    <fieldMapping arFieldId="13208" arFieldPart="" defaultAttachN
-   value          : ame=""/>                </element>                <element dataType="string" default="Approvers"                    maxOccurs="1" minOccurs="1" name="
-   value          : APApprovers"                    nillable="false" xmlType="false">                    <fieldMapping arFieldId="13207" arFieldPart="" defaultAttachName="
-   value          : "/>                </element>                <element dataType="string" default="" maxOccurs="1"                    minOccurs="1" name="Infrastructure
-   value          : _Change_ID"                    nillable="false" xmlType="false">                    <fieldMapping arFieldId="1000000182" arFieldPart="" defaultAttachNa
-   value          : me=""/>                </element>                <element dataType="string" default="Approval Phase"                    maxOccurs="1" minOccurs="1"  
-   value          :                   name="Approval_Phase_Name" nillable="false" xmlType="false">                    <fieldMapping arFieldId="1000003143" arFieldPart="" de
-   value          : faultAttachName=""/>                </element>                <element dataType="string" default="Draft"                    enumValues="Draft,Request 
-   value          : For Authorization,Request For Change,Planning In Progress,Scheduled For Review,Scheduled For Approval,Scheduled,Implementation In Progress,Pending,Reject
-   value          : ed,Completed,Closed,Cancelled"                    maxOccurs="1" minOccurs="1"                    name="Change_Request_Status" nillable="false" xmlType=
-   value          : "false">                    <fieldMapping arFieldId="7" arFieldPart="" defaultAttachName=""/>                </element>                <element dataTy
-   value          : pe="string" default="" maxOccurs="1"                    minOccurs="1" name="Request_ID" nillable="false" xmlType="false">                    <fieldMapp
-   value          : ing arFieldId="1" arFieldPart="" defaultAttachName=""/>                </element>                <element dataType="string" default="" maxOccurs="1"  
-   value          :                   minOccurs="1" name="Process" nillable="false" xmlType="false">                    <fieldMapping arFieldId="10000" arFieldPart="" defau
-   value          : ltAttachName=""/>                </element>                <element dataType="string" default="" maxOccurs="1"                    minOccurs="0" name="
-   value          : Approval_ID" nillable="false" xmlType="false">                    <fieldMapping arFieldId="13188" arFieldPart="" defaultAttachName=""/>                
-   value          : </element>            </element>        </formMapping>    </element></arDocMapping>\
-   ref-groups     : 0 
-}
-reference {
-   type           : 32799
-   datatype       : 1
-   value          : 4\166\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="OutputMapping4" schemaSo
-   value          : urce="generated"/>\
-   ref-groups     : 0 
-}
-reference {
-   type           : 32799
-   datatype       : 1
-   value          : 4\936\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="InputMapping4" schemaSou
-   value          : rce="generated">    <formMapping>        <form distinguishingKeyId="1" foreignKeyId="1"            formName="CHG:ChangeAPDetailSignature" primaryKeyId
-   value          : ="1"/>        <element all="false" dataType="ROOT" default="" maxOccurs="1"            minOccurs="1" name="ROOT" targetNamespace="urn:XM_CHG_ChangeAPDe
-   value          : tailSignature_WS">            <element dataType="string" default="" maxOccurs="1"                minOccurs="0" name="Approver_Signature" nillable="fals
-   value          : e" xmlType="false">                <fieldMapping arFieldId="13204" arFieldPart="" defaultAttachName=""/>            </element>            <element dat
-   value          : aType="string" default="" maxOccurs="1"                minOccurs="1" name="Request_ID" nillable="false" xmlType="false"/>        </element>    </formM
-   value          : apping></arDocMapping>\
-   ref-groups     : 0 
-}
-reference {
-   type           : 32799
-   datatype       : 1
-   value          : 4\1570\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="InputMapping1" schemaSo
-   value          : urce="generated">    <formMapping>        <form distinguishingKeyId="1" foreignKeyId="1"            formName="CHG:ChangeAPDetailSignature" primaryKeyI
-   value          : d="1"/>        <element all="false" dataType="ROOT" default="" maxOccurs="1"            minOccurs="1" name="ROOT" targetNamespace="urn:XM_CHG_ChangeAPD
-   value          : etailSignature_WS">            <element dataType="string" default=""                enumValues="Pending,Approved,Rejected,Hold,More Information,Cancell
-   value          : ed,Error,Closed"                maxOccurs="1" minOccurs="1" name="Approval_Status2"                nillable="true" xmlType="false">                <fi
-   value          : eldMapping arFieldId="13191" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"
-   value          :                 minOccurs="1" name="Approver_Signature" nillable="false" xmlType="false">                <fieldMapping arFieldId="13204" arFieldPart=""
-   value          :  defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="0" name="Justif
-   value          : ication" nillable="false" xmlType="false">                <fieldMapping arFieldId="14518" arFieldPart="" defaultAttachName=""/>            </element> 
-   value          :            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Request_ID" nillable="false" xmlType="false"/>       
-   value          :  </element>    </formMapping></arDocMapping>\
-   ref-groups     : 0 
-}
-reference {
-   type           : 32799
-   datatype       : 1
-   value          : 4\962\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="InputMapping2" schemaSou
-   value          : rce="generated">    <formMapping>        <form distinguishingKeyId="-2147483647"            foreignKeyId="-2147483647" formName="" primaryKeyId="1"/>
-   value          :         <element all="false" dataType="ROOT" default="" maxOccurs="1"            minOccurs="1" name="ROOT" targetNamespace="urn:XM_CHG_ChangeAPDetailSig
-   value          : nature_WS">            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Qualification" nillable="false" xmlType="
-   value          : false"/>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="startRecord" nillable="false" xmlType="false
-   value          : "/>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="maxLimit" nillable="false" xmlType="false"/>    
-   value          :     </element>    </formMapping></arDocMapping>\
-   ref-groups     : 0 
-}
-reference {
-   type           : 32799
-   datatype       : 1
-   value          : 4\962\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="InputMapping3" schemaSou
-   value          : rce="generated">    <formMapping>        <form distinguishingKeyId="-2147483647"            foreignKeyId="-2147483647" formName="" primaryKeyId="1"/>
-   value          :         <element all="false" dataType="ROOT" default="" maxOccurs="1"            minOccurs="1" name="ROOT" targetNamespace="urn:XM_CHG_ChangeAPDetailSig
-   value          : nature_WS">            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Qualification" nillable="false" xmlType="
-   value          : false"/>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="startRecord" nillable="false" xmlType="false
-   value          : "/>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="maxLimit" nillable="false" xmlType="false"/>    
-   value          :     </element>    </formMapping></arDocMapping>\
-   ref-groups     : 0 
-}
-reference {
-   type           : 32800
-   datatype       : 1
-   value          : 4\10241\<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions targetNamespace="urn:XM_CHG_ChangeAPDetailSignature_WS" xmlns:s0="urn:XM_CHG_ChangeAPDe
-   value          : tailSignature_WS" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas
-   value          : .xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"> <wsdl:types>  <xsd:schema elementFormDefault="qualified" targetNamespace="urn:XM_CH
-   value          : G_ChangeAPDetailSignature_WS">   <xsd:element name="SetApprovalStatus" type="s0:InputMapping1"/>   <xsd:complexType name="InputMapping1">    <xsd:s
-   value          : equence>     <xsd:element maxOccurs="1" minOccurs="1" name="Approval_Status2" nillable="true" type="s0:Approval_Status2Type"/>     <xsd:element maxOc
-   value          : curs="1" minOccurs="1" name="Approver_Signature" nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="0" name="Justification"
-   value          :  nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name="Request_ID" nillable="false" type="xsd:string"/>    </xsd:se
-   value          : quence>   </xsd:complexType>   <xsd:simpleType name="Approval_Status2Type">    <xsd:restriction base="xsd:string">     <xsd:enumeration value="Pe
-   value          : nding"/>     <xsd:enumeration value="Approved"/>     <xsd:enumeration value="Rejected"/>     <xsd:enumeration value="Hold"/>     <xsd:enumeration
-   value          :  value="More Information"/>     <xsd:enumeration value="Cancelled"/>     <xsd:enumeration value="Error"/>     <xsd:enumeration value="Closed"/>  
-   value          :   </xsd:restriction>   </xsd:simpleType>   <xsd:element name="SetApprovalStatusResponse" type="s0:OutputMapping1"/>   <xsd:complexType name="Output
-   value          : Mapping1">    <xsd:sequence/>   </xsd:complexType>   <xsd:element name="GetApprovals" type="s0:InputMapping3"/>   <xsd:complexType name="InputMap
-   value          : ping3">    <xsd:sequence>     <xsd:element maxOccurs="1" minOccurs="1" name="Qualification" nillable="false" type="xsd:string"/>     <xsd:element m
-   value          : axOccurs="1" minOccurs="1" name="startRecord" nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name="maxLimit" nillabl
-   value          : e="false" type="xsd:string"/>    </xsd:sequence>   </xsd:complexType>   <xsd:element name="GetApprovalsResponse" type="s0:OutputMapping3"/>   <xs
-   value          : d:complexType name="OutputMapping3">    <xsd:sequence>     <xsd:element maxOccurs="unbounded" minOccurs="1" name="getListValues">      <xsd:complex
-   value          : Type>       <xsd:sequence>        <xsd:element maxOccurs="1" minOccurs="1" name="Approval_Status2" nillable="true" type="s0:Approval_Status2Type"/>
-   value          :         <xsd:element maxOccurs="1" minOccurs="1" name="Approval_Priority" nillable="true" type="s0:Approval_PriorityType"/>        <xsd:element maxOc
-   value          : curs="1" minOccurs="1" name="If_Multiple_Approvers" nillable="true" type="s0:If_Multiple_ApproversType"/>        <xsd:element default="Approvers" maxOc
-   value          : curs="1" minOccurs="1" name="APApprovers" nillable="false" type="xsd:string"/>        <xsd:element maxOccurs="1" minOccurs="1" name="Infrastructure_Cha
-   value          : nge_ID" nillable="false" type="xsd:string"/>        <xsd:element default="Approval Phase" maxOccurs="1" minOccurs="1" name="Approval_Phase_Name" nillab
-   value          : le="false" type="xsd:string"/>        <xsd:element default="Draft" maxOccurs="1" minOccurs="1" name="Change_Request_Status" nillable="false" type="s0:C
-   value          : hange_Request_StatusType"/>        <xsd:element maxOccurs="1" minOccurs="1" name="Request_ID" nillable="false" type="xsd:string"/>        <xsd:elemen
-   value          : t maxOccurs="1" minOccurs="1" name="Process" nillable="false" type="xsd:string"/>        <xsd:element maxOccurs="1" minOccurs="0" name="Approval_ID" ni
-   value          : llable="false" type="xsd:string"/>       </xsd:sequence>      </xsd:complexType>     </xsd:element>    </xsd:sequence>   </xsd:complexType>  
-   value          :  <xsd:simpleType name="Approval_PriorityType">    <xsd:restriction base="xsd:string">     <xsd:enumeration value="Urgent"/>     <xsd:enumeration va
-   value          : lue="Normal"/>     <xsd:enumeration value="Low"/>    </xsd:restriction>   </xsd:simpleType>   <xsd:simpleType name="If_Multiple_ApproversType">
-   value          :     <xsd:restriction base="xsd:string">     <xsd:enumeration value="One Must Sign"/>     <xsd:enumeration value="All Must Sign"/>    </xsd:restri
-   value          : ction>   </xsd:simpleType>   <xsd:simpleType name="Change_Request_StatusType">    <xsd:restriction base="xsd:string">     <xsd:enumeration value=
-   value          : "Draft"/>     <xsd:enumeration value="Request For Authorization"/>     <xsd:enumeration value="Request For Change"/>     <xsd:enumeration value="Pl
-   value          : anning In Progress"/>     <xsd:enumeration value="Scheduled For Review"/>     <xsd:enumeration value="Scheduled For Approval"/>     <xsd:enumeratio
-   value          : n value="Scheduled"/>     <xsd:enumeration value="Implementation In Progress"/>     <xsd:enumeration value="Pending"/>     <xsd:enumeration value="
-   value          : Rejected"/>     <xsd:enumeration value="Completed"/>     <xsd:enumeration value="Closed"/>     <xsd:enumeration value="Cancelled"/>    </xsd:rest
-   value          : riction>   </xsd:simpleType>   <xsd:element name="SetApproverSignature" type="s0:InputMapping4"/>   <xsd:complexType name="InputMapping4">    <xs
-   value          : d:sequence>     <xsd:element maxOccurs="1" minOccurs="0" name="Approver_Signature" nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1
-   value          : " minOccurs="1" name="Request_ID" nillable="false" type="xsd:string"/>    </xsd:sequence>   </xsd:complexType>   <xsd:element name="SetApproverSign
-   value          : atureResponse" type="s0:OutputMapping4"/>   <xsd:complexType name="OutputMapping4">    <xsd:sequence/>   </xsd:complexType>   <xsd:element name="
-   value          : AuthenticationInfo" type="s0:AuthenticationInfo"/>   <xsd:complexType name="AuthenticationInfo">    <xsd:sequence>     <xsd:element name="userName"
-   value          :  type="xsd:string"/>     <xsd:element name="password" type="xsd:string"/>     <xsd:element minOccurs="0" name="authentication" type="xsd:string"/> 
-   value          :     <xsd:element minOccurs="0" name="locale" type="xsd:string"/>     <xsd:element minOccurs="0" name="timeZone" type="xsd:string"/>    </xsd:sequence
-   value          : >   </xsd:complexType>  </xsd:schema> </wsdl:types>   <wsdl:message name="GetApprovalsSoapIn">      <wsdl:part element="s0:GetApprovals" name
-   value          : ="parameters">      </wsdl:part>   </wsdl:message>   <wsdl:message name="SetApprovalStatusSoapIn">      <wsdl:part element="s0:SetApprovalSta
-   value          : tus" name="parameters">      </wsdl:part>   </wsdl:message>   <wsdl:message name="SetApproverSignatureSoapOut">      <wsdl:part element="s0:S
-   value          : etApproverSignatureResponse" name="parameters">      </wsdl:part>   </wsdl:message>   <wsdl:message name="SetApprovalStatusSoapOut">      <ws
-   value          : dl:part element="s0:SetApprovalStatusResponse" name="parameters">      </wsdl:part>   </wsdl:message>   <wsdl:message name="ARAuthenticate"> 
-   value          :      <wsdl:part element="s0:AuthenticationInfo" name="parameters">      </wsdl:part>   </wsdl:message>   <wsdl:message name="GetApprovalsSoapOut
-   value          : ">      <wsdl:part element="s0:GetApprovalsResponse" name="parameters">      </wsdl:part>   </wsdl:message>   <wsdl:message name="SetApprover
-   value          : SignatureSoapIn">      <wsdl:part element="s0:SetApproverSignature" name="parameters">      </wsdl:part>   </wsdl:message>   <wsdl:portType n
-   value          : ame="XM_CHG_ChangeAPDetailSignaturePortType">      <wsdl:operation name="SetApprovalStatus">         <wsdl:input message="s0:SetApprovalStatusSoapI
-   value          : n">       </wsdl:input>         <wsdl:output message="s0:SetApprovalStatusSoapOut">       </wsdl:output>      </wsdl:operation>      <wsdl
-   value          : :operation name="GetApprovals">         <wsdl:input message="s0:GetApprovalsSoapIn">       </wsdl:input>         <wsdl:output message="s0:GetApp
-   value          : rovalsSoapOut">       </wsdl:output>      </wsdl:operation>      <wsdl:operation name="SetApproverSignature">         <wsdl:input message="s0
-   value          : :SetApproverSignatureSoapIn">       </wsdl:input>         <wsdl:output message="s0:SetApproverSignatureSoapOut">       </wsdl:output>      </
-   value          : wsdl:operation>   </wsdl:portType>   <wsdl:binding name="XM_CHG_ChangeAPDetailSignatureSoapBinding" type="s0:XM_CHG_ChangeAPDetailSignaturePortType
-   value          : ">      <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>      <wsdl:operation name="SetApprovalStatus">        
-   value          :  <soap:operation soapAction="urn:XM_CHG_ChangeAPDetailSignature_WS/SetApprovalStatus" style="document"/>         <wsdl:input>            <soap:head
-   value          : er message="s0:ARAuthenticate" part="parameters" use="literal">            </soap:header>            <soap:body use="literal"/>         </wsdl:i
-   value          : nput>         <wsdl:output>            <soap:body use="literal"/>         </wsdl:output>      </wsdl:operation>      <wsdl:operation name=
-   value          : "GetApprovals">         <soap:operation soapAction="urn:XM_CHG_ChangeAPDetailSignature_WS/GetApprovals" style="document"/>         <wsdl:input> 
-   value          :            <soap:header message="s0:ARAuthenticate" part="parameters" use="literal">            </soap:header>            <soap:body use="literal"/
-   value          : >         </wsdl:input>         <wsdl:output>            <soap:body use="literal"/>         </wsdl:output>      </wsdl:operation>      
-   value          : <wsdl:operation name="SetApproverSignature">         <soap:operation soapAction="urn:XM_CHG_ChangeAPDetailSignature_WS/SetApproverSignature" style="do
-   value          : cument"/>         <wsdl:input>            <soap:header message="s0:ARAuthenticate" part="parameters" use="literal">            </soap:header>
-   value          :             <soap:body use="literal"/>         </wsdl:input>         <wsdl:output>            <soap:body use="literal"/>         </wsdl:outpu
-   value          : t>      </wsdl:operation>   </wsdl:binding>   <wsdl:service name="XM_CHG_ChangeAPDetailSignature_WSService">  <wsdl:documentation>xMatters 
-   value          : web service to update the Approval Status of changes.  </wsdl:documentation>      <wsdl:port binding="s0:XM_CHG_ChangeAPDetailSignatureSoapBinding" na
-   value          : me="XM_CHG_ChangeAPDetailSignatureSoap">         <soap:address location="@LOCATION@"/>      </wsdl:port>   </wsdl:service></wsdl:definitions>
-   value          : \
-   ref-groups     : 0 
-}
-reference {
-   type           : 32802
-   datatype       : 1
-   value          : 4\95\http://vic-vw-remedy91:8080/arsys/WSDL/public/vic-vw-remedy91/XM_CHG_ChangeAPDetailSignature_WS\
-   ref-groups     : 0 
-}
-end
-begin container
-   name           : XM_CHG_ChangeInterface_WS
-   type           : 5
-   num-references : 8
-   timestamp      : 1510856400
-   owner          : Demo
-   owning-obj     : 1\2\19\CHG:ChangeInterface\
-   last-changed   : aradmin
-   export-version : 12
-   permission     : 0\1
-   description    : xMatters web service to update changes. Since the use of CHG:ChangeInterface is the supported method of interacting with CHG:Infrastructure Change this w
-   description    : eb service is the endpoint for making updates.  The out of box functions include:* add a worklog entry
-   object-prop    : 3\90016\4\1\1\90015\2\4\90002\4\24\Remedy Change Management\
-reference {
-   type           : 32797
-   datatype       : 1
-   value          : 4\204\<?xml version="1.0"?><portProperties name="XM_CHG_ChangeInterface"><portType name=""/><xmlSchemaSource name="embedded"/><externalSchema name=""/><
-   value          : portName name="XM_CHG_ChangeInterface"/></portProperties>\
-   ref-groups     : 0 
-}
-reference {
-   type           : 32798
-   datatype       : 1
-   value          : 4\565\<?xml version="1.0" encoding="UTF-8"?><operation name="AddWorkLog"    qualification="'1000000182' = XPATH(/ROOT/Infrastructure_Change_ID)" type="
-   value          : set">    <arOptions>        <setOptions>            <type>setAll</type>            <documentType>partial</documentType>        </setOptions>    </a
-   value          : rOptions>    <inputMapping name="InputMapping1"        namespace="XM_CHG_ChangeInterface_WS" topLevelElement="AddWorkLog"/>    <outputMapping name="Ou
-   value          : tputMapping1"        namespace="XM_CHG_ChangeInterface_WS" topLevelElement="AddWorkLogResponse"/></operation>\
-   ref-groups     : 0 
-}
-reference {
-   type           : 32828
-   datatype       : 1
-   value          : 4\0\\
-   ref-groups     : 0 
-}
-reference {
-   type           : 32843
-   datatype       : 1
-   value          : 0\
-   ref-groups     : 0 
-}
-reference {
-   type           : 32799
-   datatype       : 1
-   value          : 4\166\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="OutputMapping1" schemaSo
-   value          : urce="generated"/>\
-   ref-groups     : 0 
-}
-reference {
-   type           : 32799
-   datatype       : 1
-   value          : 4\3397\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="InputMapping1" schemaSo
-   value          : urce="generated">    <formMapping>        <form distinguishingKeyId="1" foreignKeyId="1"            formName="CHG:ChangeInterface" primaryKeyId="1"/>
-   value          :         <element all="false" dataType="ROOT" default="" maxOccurs="1"            minOccurs="1" name="ROOT" targetNamespace="urn:XM_CHG_ChangeInterface_W
-   value          : S">            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Action" nillable="false" xmlType="false">       
-   value          :          <fieldMapping arFieldId="1000000076" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default
-   value          : ="" maxOccurs="1"                minOccurs="1" name="Work_Info_Summary" nillable="false" xmlType="false">                <fieldMapping arFieldId="30132
-   value          : 9900" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOcc
-   value          : urs="1" name="Work_Info_Notes" nillable="false" xmlType="false">                <fieldMapping arFieldId="301398800" arFieldPart="" defaultAttachName=""/
-   value          : >            </element>            <element dataType="string" default="z1D_Activity_Type"                enumValues="All,----- Requirements -----,Busi
-   value          : ness Justification,Requirements,----- Analysis -----,Change Assessment,Potential Problems,Risk Assessment,Service Impact Assessment,----- Build -----,Bac
-   value          : kout Plan,Business Design,Development,Install Plan,Technical Design,Test Plan,----- Execution -----,Backout Results - Details,Install Results - Details,T
-   value          : est Results - Details,----- Closure -----,Cancellation Information,Post Implementation Review,----- Audit -----,Configuration Audit,SLM Compliance Audit,
-   value          : SLM Process Review,----- General -----,General Information,Rejection Information,Email System,Paging System"                maxOccurs="1" minOccurs="1" 
-   value          : name="Work_Info_Type"                nillable="false" xmlType="false">                <fieldMapping arFieldId="301398600" arFieldPart="" defaultAttachN
-   value          : ame=""/>            </element>            <element dataType="string" default=""                enumValues="Email,Fax,Phone,Voice Mail,Walk In,Pager,Sy
-   value          : stem Assignment,Web,Other"                maxOccurs="1" minOccurs="1" name="Communication_Source"                nillable="false" xmlType="false">    
-   value          :             <fieldMapping arFieldId="301602600" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" defau
-   value          : lt="" enumValues="Yes,No"                maxOccurs="1" minOccurs="1" name="Work_Info_Locked"                nillable="false" xmlType="false">         
-   value          :        <fieldMapping arFieldId="301398900" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default=""
-   value          :                 enumValues="Internal,Public" maxOccurs="1" minOccurs="1"                name="Work_Info_View_Access" nillable="false" xmlType="false">
-   value          :                 <fieldMapping arFieldId="301399000" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" d
-   value          : efault="" maxOccurs="1"                minOccurs="1" name="Infrastructure_Change_ID"                nillable="false" xmlType="false"/>        </elemen
-   value          : t>    </formMapping></arDocMapping>\
-   ref-groups     : 0 
-}
-reference {
-   type           : 32800
-   datatype       : 1
-   value          : 4\7037\<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions targetNamespace="urn:XM_CHG_ChangeInterface_WS" xmlns:s0="urn:XM_CHG_ChangeInterface_WS"
-   value          :  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl
-   value          : /" xmlns:xsd="http://www.w3.org/2001/XMLSchema"> <wsdl:types>  <xsd:schema elementFormDefault="qualified" targetNamespace="urn:XM_CHG_ChangeInterface
-   value          : _WS">   <xsd:element name="AddWorkLog" type="s0:InputMapping1"/>   <xsd:complexType name="InputMapping1">    <xsd:sequence>     <xsd:element maxO
-   value          : ccurs="1" minOccurs="1" name="Action" nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name="Work_Info_Summary" nillab
-   value          : le="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name="Work_Info_Notes" nillable="false" type="xsd:string"/>     <xsd:elem
-   value          : ent default="z1D_Activity_Type" maxOccurs="1" minOccurs="1" name="Work_Info_Type" nillable="false" type="s0:Work_Info_TypeType"/>     <xsd:element maxO
-   value          : ccurs="1" minOccurs="1" name="Communication_Source" nillable="false" type="s0:Communication_SourceType"/>     <xsd:element maxOccurs="1" minOccurs="1" 
-   value          : name="Work_Info_Locked" nillable="false" type="s0:Work_Info_LockedType"/>     <xsd:element maxOccurs="1" minOccurs="1" name="Work_Info_View_Access" nil
-   value          : lable="false" type="s0:Work_Info_View_AccessType"/>     <xsd:element maxOccurs="1" minOccurs="1" name="Infrastructure_Change_ID" nillable="false" type=
-   value          : "xsd:string"/>    </xsd:sequence>   </xsd:complexType>   <xsd:simpleType name="Work_Info_TypeType">    <xsd:restriction base="xsd:string">     
-   value          : <xsd:enumeration value="All"/>     <xsd:enumeration value="----- Requirements -----"/>     <xsd:enumeration value="Business Justification"/>     <x
-   value          : sd:enumeration value="Requirements"/>     <xsd:enumeration value="----- Analysis -----"/>     <xsd:enumeration value="Change Assessment"/>     <xsd
-   value          : :enumeration value="Potential Problems"/>     <xsd:enumeration value="Risk Assessment"/>     <xsd:enumeration value="Service Impact Assessment"/>  
-   value          :    <xsd:enumeration value="----- Build -----"/>     <xsd:enumeration value="Backout Plan"/>     <xsd:enumeration value="Business Design"/>     <xsd
-   value          : :enumeration value="Development"/>     <xsd:enumeration value="Install Plan"/>     <xsd:enumeration value="Technical Design"/>     <xsd:enumeration
-   value          :  value="Test Plan"/>     <xsd:enumeration value="----- Execution -----"/>     <xsd:enumeration value="Backout Results - Details"/>     <xsd:enumera
-   value          : tion value="Install Results - Details"/>     <xsd:enumeration value="Test Results - Details"/>     <xsd:enumeration value="----- Closure -----"/>  
-   value          :    <xsd:enumeration value="Cancellation Information"/>     <xsd:enumeration value="Post Implementation Review"/>     <xsd:enumeration value="----- Au
-   value          : dit -----"/>     <xsd:enumeration value="Configuration Audit"/>     <xsd:enumeration value="SLM Compliance Audit"/>     <xsd:enumeration value="SLM
-   value          :  Process Review"/>     <xsd:enumeration value="----- General -----"/>     <xsd:enumeration value="General Information"/>     <xsd:enumeration value
-   value          : ="Rejection Information"/>     <xsd:enumeration value="Email System"/>     <xsd:enumeration value="Paging System"/>    </xsd:restriction>   </xsd
-   value          : :simpleType>   <xsd:simpleType name="Communication_SourceType">    <xsd:restriction base="xsd:string">     <xsd:enumeration value="Email"/>     <
-   value          : xsd:enumeration value="Fax"/>     <xsd:enumeration value="Phone"/>     <xsd:enumeration value="Voice Mail"/>     <xsd:enumeration value="Walk In"/>
-   value          :      <xsd:enumeration value="Pager"/>     <xsd:enumeration value="System Assignment"/>     <xsd:enumeration value="Web"/>     <xsd:enumeration va
-   value          : lue="Other"/>    </xsd:restriction>   </xsd:simpleType>   <xsd:simpleType name="Work_Info_LockedType">    <xsd:restriction base="xsd:string">  
-   value          :    <xsd:enumeration value="Yes"/>     <xsd:enumeration value="No"/>    </xsd:restriction>   </xsd:simpleType>   <xsd:simpleType name="Work_Info_V
-   value          : iew_AccessType">    <xsd:restriction base="xsd:string">     <xsd:enumeration value="Internal"/>     <xsd:enumeration value="Public"/>    </xsd:re
-   value          : striction>   </xsd:simpleType>   <xsd:element name="AddWorkLogResponse" type="s0:OutputMapping1"/>   <xsd:complexType name="OutputMapping1">    <
-   value          : xsd:sequence/>   </xsd:complexType>   <xsd:element name="AuthenticationInfo" type="s0:AuthenticationInfo"/>   <xsd:complexType name="Authentication
-   value          : Info">    <xsd:sequence>     <xsd:element name="userName" type="xsd:string"/>     <xsd:element name="password" type="xsd:string"/>     <xsd:eleme
-   value          : nt minOccurs="0" name="authentication" type="xsd:string"/>     <xsd:element minOccurs="0" name="locale" type="xsd:string"/>     <xsd:element minOccur
-   value          : s="0" name="timeZone" type="xsd:string"/>    </xsd:sequence>   </xsd:complexType>  </xsd:schema> </wsdl:types>   <wsdl:message name="ARAuthent
-   value          : icate">      <wsdl:part element="s0:AuthenticationInfo" name="parameters">      </wsdl:part>   </wsdl:message>   <wsdl:message name="AddWorkL
-   value          : ogSoapIn">      <wsdl:part element="s0:AddWorkLog" name="parameters">      </wsdl:part>   </wsdl:message>   <wsdl:message name="AddWorkLogSoa
-   value          : pOut">      <wsdl:part element="s0:AddWorkLogResponse" name="parameters">      </wsdl:part>   </wsdl:message>   <wsdl:portType name="XM_CHG_C
-   value          : hangeInterfacePortType">      <wsdl:operation name="AddWorkLog">         <wsdl:input message="s0:AddWorkLogSoapIn">       </wsdl:input>      
-   value          :    <wsdl:output message="s0:AddWorkLogSoapOut">       </wsdl:output>      </wsdl:operation>   </wsdl:portType>   <wsdl:binding name="XM_CHG_C
-   value          : hangeInterfaceSoapBinding" type="s0:XM_CHG_ChangeInterfacePortType">      <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/ht
-   value          : tp"/>      <wsdl:operation name="AddWorkLog">         <soap:operation soapAction="urn:XM_CHG_ChangeInterface_WS/AddWorkLog" style="document"/>  
-   value          :        <wsdl:input>            <soap:header message="s0:ARAuthenticate" part="parameters" use="literal">            </soap:header>            <s
-   value          : oap:body use="literal"/>         </wsdl:input>         <wsdl:output>            <soap:body use="literal"/>         </wsdl:output>      </w
-   value          : sdl:operation>   </wsdl:binding>   <wsdl:service name="XM_CHG_ChangeInterface_WSService">  <wsdl:documentation>xMatters web service to update 
-   value          : changes. Since the use of CHG:ChangeInterface is the supported method of interacting with CHG:Infrastructure Change this web service is the endpoint for 
-   value          : making updates.  The out of box functions include:* add a worklog entry  </wsdl:documentation>      <wsdl:port binding="s0:XM_CHG_ChangeInterfaceSoa
-   value          : pBinding" name="XM_CHG_ChangeInterfaceSoap">         <soap:address location="@LOCATION@"/>      </wsdl:port>   </wsdl:service></wsdl:definiti
-   value          : ons>\
-   ref-groups     : 0 
-}
-reference {
-   type           : 32802
-   datatype       : 1
-   value          : 4\87\http://vic-vw-remedy91:8080/arsys/WSDL/public/vic-vw-remedy91/XM_CHG_ChangeInterface_WS\
-   ref-groups     : 0 
-}
-end
-begin container
-   name           : XM_CHG_InfrastructureChange_WS
-   type           : 5
-   num-references : 8
-   timestamp      : 1510856399
-   owner          : Demo
-   owning-obj     : 1\2\25\CHG:Infrastructure Change\
-   last-changed   : aradmin
-   export-version : 12
-   permission     : 0\1
-   description    : xMatters web service to obtain information from CHG:infrastrucutre Change.  This web service is used to GET data from the source form CHG:Infrastructure 
-   description    : Change rather than the join form CHG:ChangeInterface; however CHG:ChangeInterface should be used to update changes as it is the method BMC supports for e
-   description    : nsuring workflow associated with CHG:Infrastructure Change is run.
-   object-prop    : 3\90016\4\1\1\90015\2\4\90002\4\24\Remedy Change Management\
-reference {
-   type           : 32797
-   datatype       : 1
-   value          : 4\214\<?xml version="1.0"?><portProperties name="XM_CHG_InfrastructureChange"><portType name=""/><xmlSchemaSource name="embedded"/><externalSchema name=
-   value          : ""/><portName name="XM_CHG_InfrastructureChange"/></portProperties>\
-   ref-groups     : 0 
-}
-reference {
-   type           : 32798
-   datatype       : 1
-   value          : 4\571\<?xml version="1.0" encoding="UTF-8"?><operation name="GetChange"    qualification="'1000000182' = XPATH(/ROOT/Infrastructure_Change_ID)" type="g
-   value          : et">    <arOptions>        <setOptions>            <type>setFirst</type>            <documentType>full</documentType>        </setOptions>    </arO
-   value          : ptions>    <inputMapping name="InputMapping1"        namespace="XM_CHG_InfrastructureChange_WS" topLevelElement="GetChange"/>    <outputMapping name="
-   value          : OutputMapping1"        namespace="XM_CHG_InfrastructureChange_WS" topLevelElement="GetChangeResponse"/></operation>\
-   ref-groups     : 0 
-}
-reference {
-   type           : 32828
-   datatype       : 1
-   value          : 4\0\\
-   ref-groups     : 0 
-}
-reference {
-   type           : 32843
-   datatype       : 1
-   value          : 0\
-   ref-groups     : 0 
-}
-reference {
-   type           : 32799
-   datatype       : 1
-   value          : 4\29966\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="OutputMapping1" schema
-   value          : Source="generated">    <formMapping>        <form distinguishingKeyId="1" foreignKeyId="1"            formName="CHG:Infrastructure Change" primaryKeyI
-   value          : d="1"/>        <element all="false" dataType="ROOT" default="" maxOccurs="1"            minOccurs="1" name="ROOT" targetNamespace="urn:XM_CHG_Infrastru
-   value          : ctureChange_WS">            <element dataType="string" default="Draft"                enumValues="Draft,Request For Authorization,Request For Change,Pl
-   value          : anning In Progress,Scheduled For Review,Scheduled For Approval,Scheduled,Implementation In Progress,Pending,Rejected,Completed,Closed,Cancelled"        
-   value          :         maxOccurs="1" minOccurs="1" name="Change_Request_Status"                nillable="false" xmlType="false">                <fieldMapping arFieldI
-   value          : d="7" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOcc
-   value          : urs="1" name="Department" nillable="false" xmlType="false">                <fieldMapping arFieldId="200000006" arFieldPart="" defaultAttachName=""/>   
-   value          :          </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Site_Group" nillable="false" xmlT
-   value          : ype="false">                <fieldMapping arFieldId="200000007" arFieldPart="" defaultAttachName=""/>            </element>            <element dataTy
-   value          : pe="string" default="" maxOccurs="1"                minOccurs="1" name="Region" nillable="false" xmlType="false">                <fieldMapping arFieldI
-   value          : d="200000012" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" enumValues="Yes,No"        
-   value          :         maxOccurs="1" minOccurs="1" name="Escalated_"                nillable="true" xmlType="false">                <fieldMapping arFieldId="250000023
-   value          : " arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs=
-   value          : "1" name="Site" nillable="false" xmlType="false">                <fieldMapping arFieldId="260000001" arFieldPart="" defaultAttachName=""/>            <
-   value          : /element>            <element dataType="string" default=""                enumValues="Critical,High,Medium,Low" maxOccurs="1"                minOccurs
-   value          : ="1" name="SLM_Priority2" nillable="true" xmlType="false">                <fieldMapping arFieldId="301889300" arFieldPart="" defaultAttachName=""/>    
-   value          :         </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Description" nillable="false" xmlT
-   value          : ype="false">                <fieldMapping arFieldId="1000000000" arFieldPart="" defaultAttachName=""/>            </element>            <element dataT
-   value          : ype="string" default="" maxOccurs="1"                minOccurs="1" name="Location_Company" nillable="false" xmlType="false">                <fieldMappi
-   value          : ng arFieldId="1000000001" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"  
-   value          :               minOccurs="1" name="Organization" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000010" arFieldPart="" def
-   value          : aultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Support_Or
-   value          : ganization"                nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000014" arFieldPart="" defaultAttachName=""/>
-   value          :             </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Support_Group_Name" nillable="
-   value          : false" xmlType="false">                <fieldMapping arFieldId="1000000015" arFieldPart="" defaultAttachName=""/>            </element>            <el
-   value          : ement dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Last_Name" nillable="false" xmlType="false">                <fieldM
-   value          : apping arFieldId="1000000018" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1
-   value          : "                minOccurs="1" name="First_Name" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000019" arFieldPart="" d
-   value          : efaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Middle_I
-   value          : nitial" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000020" arFieldPart="" defaultAttachName=""/>            </elemen
-   value          : t>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Phone_Number" nillable="false" xmlType="false">  
-   value          :               <fieldMapping arFieldId="1000000056" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" de
-   value          : fault="" maxOccurs="1"                minOccurs="1" name="Categorization_Tier_1"                nillable="false" xmlType="false">                <fiel
-   value          : dMapping arFieldId="1000000063" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs=
-   value          : "1"                minOccurs="1" name="Categorization_Tier_2"                nillable="false" xmlType="false">                <fieldMapping arFieldId=
-   value          : "1000000064" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"               
-   value          :  minOccurs="1" name="Categorization_Tier_3"                nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000065" arFiel
-   value          : dPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name
-   value          : ="Company" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000082" arFieldPart="" defaultAttachName=""/>            </ele
-   value          : ment>            <element dataType="string" default=""                enumValues="No Longer Required,Funding Not Available,To Be Re-Scheduled,Resources
-   value          :  Not Available,Successful,Successful with Issues,Unsuccessful,Backed Out,Final Review Complete,Final Review Required,Additional Coding Required,Insuffici
-   value          : ent Task Data,In Verification,In Rollout,Insufficient Change Data,Schedule Conflicts,In Development,In Test,In Build,In Rollback,In Documentation,Vendor 
-   value          : Purchase,Support Group Communication,Task Review,Miscellaneous,Future Enhancement,Approval Error,Manager Intervention,Accepted,Assigned,Built,On Hold,Aut
-   value          : omatically Closed"                maxOccurs="1" minOccurs="1" name="Status_Reason"                nillable="true" xmlType="false">                <fie
-   value          : ldMapping arFieldId="1000000150" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs
-   value          : ="1"                minOccurs="1" name="Detailed_Description"                nillable="false" xmlType="false">                <fieldMapping arFieldId=
-   value          : "1000000151" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default=""                enumValues="1
-   value          : -Critical,2-High,3-Medium,4-Low"                maxOccurs="1" minOccurs="1" name="Urgency"                nillable="true" xmlType="false">            
-   value          :     <fieldMapping arFieldId="1000000162" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" 
-   value          :                enumValues="1-Extensive/Widespread,2-Significant/Large,3-Moderate/Limited,4-Minor/Localized"                maxOccurs="1" minOccurs="1" n
-   value          : ame="Impact"                nillable="true" xmlType="false">                <fieldMapping arFieldId="1000000163" arFieldPart="" defaultAttachName=""/>
-   value          :             </element>            <element dataType="string" default=""                enumValues="Critical,High,Medium,Low" maxOccurs="1"            
-   value          :     minOccurs="1" name="Priority" nillable="true" xmlType="false">                <fieldMapping arFieldId="1000000164" arFieldPart="" defaultAttachName=
-   value          : ""/>            </element>            <element dataType="string" default=""                enumValues="Risk Level 1,Risk Level 2,Risk Level 3,Risk Lev
-   value          : el 4,Risk Level 5"                maxOccurs="1" minOccurs="1" name="Risk_Level"                nillable="true" xmlType="false">                <fieldM
-   value          : apping arFieldId="1000000180" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default=""            
-   value          :     enumValues="Project,Change,Release,Asset Configuration,Asset Management,Asset Lease,Purchase Requisition,Asset Maintenance,Automation System"       
-   value          :          maxOccurs="1" minOccurs="1" name="Change_Type"                nillable="true" xmlType="false">                <fieldMapping arFieldId="1000000
-   value          : 181" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccu
-   value          : rs="1" name="Infrastructure_Change_ID"                nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000182" arFieldPart
-   value          : ="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Com
-   value          : pany3" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000251" arFieldPart="" defaultAttachName=""/>            </element
-   value          : >            <element dataType="int" default="" maxOccurs="1"                minOccurs="1" name="Lead_Time" nillable="true" xmlType="false">          
-   value          :       <fieldMapping arFieldId="1000000283" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default=""
-   value          :                 enumValues="Fix/Repair,New Functionality,Maintenance,Upgrade,Other"                maxOccurs="1" minOccurs="1" name="Reason_For_Change"
-   value          :                 nillable="true" xmlType="false">                <fieldMapping arFieldId="1000000294" arFieldPart="" defaultAttachName=""/>            
-   value          : </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Requestor_ID" nillable="false" xmlType="fa
-   value          : lse">                <fieldMapping arFieldId="1000000337" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="st
-   value          : ring" default="" maxOccurs="1"                minOccurs="1" name="Support_Group_Name2"                nillable="false" xmlType="false">               
-   value          :  <fieldMapping arFieldId="1000000341" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxO
-   value          : ccurs="1"                minOccurs="1" name="Support_Organization2"                nillable="false" xmlType="false">                <fieldMapping arFi
-   value          : eldId="1000000342" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="dateTime" default="" maxOccurs="1"       
-   value          :          minOccurs="1" name="Actual_Start_Date" nillable="true" xmlType="false">                <fieldMapping arFieldId="1000000348" arFieldPart="" defa
-   value          : ultAttachName=""/>            </element>            <element dataType="dateTime" default="" maxOccurs="1"                minOccurs="1" name="Requested
-   value          : _Start_Date"                nillable="true" xmlType="false">                <fieldMapping arFieldId="1000000349" arFieldPart="" defaultAttachName=""/>
-   value          :             </element>            <element dataType="dateTime" default="" maxOccurs="1"                minOccurs="1" name="Scheduled_Start_Date"      
-   value          :           nillable="true" xmlType="false">                <fieldMapping arFieldId="1000000350" arFieldPart="" defaultAttachName=""/>            </eleme
-   value          : nt>            <element dataType="dateTime" default="" maxOccurs="1"                minOccurs="1" name="Earliest_Start_Date" nillable="true" xmlType="f
-   value          : alse">                <fieldMapping arFieldId="1000000358" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="d
-   value          : ateTime" default="" maxOccurs="1"                minOccurs="1" name="Scheduled_End_Date" nillable="true" xmlType="false">                <fieldMapping 
-   value          : arFieldId="1000000362" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="dateTime" default="" maxOccurs="1"   
-   value          :              minOccurs="1" name="Requested_End_Date" nillable="true" xmlType="false">                <fieldMapping arFieldId="1000000363" arFieldPart=""
-   value          :  defaultAttachName=""/>            </element>            <element dataType="dateTime" default="" maxOccurs="1"                minOccurs="1" name="Actu
-   value          : al_End_Date" nillable="true" xmlType="false">                <fieldMapping arFieldId="1000000364" arFieldPart="" defaultAttachName=""/>            </el
-   value          : ement>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="CAB_Manager_Login" nillable="false" xmlType="f
-   value          : alse">                <fieldMapping arFieldId="1000000408" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="s
-   value          : tring" default=""                enumValues="Critical,High,Medium,Low" maxOccurs="1"                minOccurs="1" name="SLM_Priority" nillable="true" x
-   value          : mlType="false">                <fieldMapping arFieldId="1000001259" arFieldPart="" defaultAttachName=""/>            </element>            <element da
-   value          : taType="string" default="" maxOccurs="1"                minOccurs="1" name="Product_Cat_Tier_1" nillable="false" xmlType="false">                <field
-   value          : Mapping arFieldId="1000001270" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="
-   value          : 1"                minOccurs="1" name="Product_Cat_Tier_2" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000001271" arField
-   value          : Part="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name=
-   value          : "Product_Cat_Tier_3" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000001272" arFieldPart="" defaultAttachName=""/>       
-   value          :      </element>            <element dataType="string" default=""                enumValues="Production,Model Office,Hot Backup,Development"           
-   value          :      maxOccurs="1" minOccurs="1" name="Environment"                nillable="true" xmlType="false">                <fieldMapping arFieldId="1000001566"
-   value          :  arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default=""                enumValues="Draft,Request
-   value          :  For Authorization,Request For Change,Planning In Progress,Scheduled For Review,Scheduled For Approval,Scheduled,Implementation In Progress,Pending,Rejec
-   value          : ted,Completed,Closed,Cancelled"                maxOccurs="1" minOccurs="1"                name="Change_Request_Prev_Status" nillable="true" xmlType="fa
-   value          : lse">                <fieldMapping arFieldId="1000001722" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="st
-   value          : ring" default=""                enumValues="No Service Target Assigned,Within the Service Target,Service Target Warning,Service Targets Breached,All Ser
-   value          : vice Targets Breached"                maxOccurs="1" minOccurs="1" name="SLM_Status"                nillable="true" xmlType="false">                <fi
-   value          : eldMapping arFieldId="1000003009" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccur
-   value          : s="1"                minOccurs="1" name="Approval_Phase_Name"                nillable="false" xmlType="false">                <fieldMapping arFieldId=
-   value          : "1000003143" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default=""                enumValues="C
-   value          : ustomer/business need,Insufficient lead-time,Known error correction,Scheduling conflict"                maxOccurs="1" minOccurs="1" name="Timing_Reason"
-   value          :                 nillable="true" xmlType="false">                <fieldMapping arFieldId="1000003216" arFieldPart="" defaultAttachName=""/>            
-   value          : </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="RejectApprovalStatusReason"              
-   value          :   nillable="false" xmlType="false">                <fieldMapping arFieldId="1000003219" arFieldPart="" defaultAttachName=""/>            </element>   
-   value          :          <element dataType="string" default=""                enumValues="No SLA Assigned,Within the SLA,Escalated Within the SLA,SLA Breached"        
-   value          :         maxOccurs="1" minOccurs="1" name="SLA_Response_Status"                nillable="true" xmlType="false">                <fieldMapping arFieldId="
-   value          : 1000003223" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                
-   value          : minOccurs="1" name="Customer_Country_Code"                nillable="false" xmlType="false">                <fieldMapping arFieldId="1000003225" arField
-   value          : Part="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name=
-   value          : "ASORG" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000003227" arFieldPart="" defaultAttachName=""/>            </elemen
-   value          : t>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="ASCPY" nillable="false" xmlType="false">         
-   value          :        <fieldMapping arFieldId="1000003228" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="
-   value          : " maxOccurs="1"                minOccurs="1" name="ASGRP" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000003229" arField
-   value          : Part="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name=
-   value          : "ASCHG" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000003230" arFieldPart="" defaultAttachName=""/>            </elemen
-   value          : t>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="ASLOGID" nillable="false" xmlType="false">       
-   value          :          <fieldMapping arFieldId="1000003231" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default
-   value          : ="" maxOccurs="1"                minOccurs="1" name="ASGRPID" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000003234" arF
-   value          : ieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" n
-   value          : ame="Approval_Definition_ID"                nillable="false" xmlType="false">                <fieldMapping arFieldId="1000003235" arFieldPart="" defaul
-   value          : tAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="ChgImpCpy" ni
-   value          : llable="false" xmlType="false">                <fieldMapping arFieldId="1000003254" arFieldPart="" defaultAttachName=""/>            </element>       
-   value          :      <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="ChgImpOrg" nillable="false" xmlType="false">               
-   value          :  <fieldMapping arFieldId="1000003255" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxO
-   value          : ccurs="1"                minOccurs="1" name="ChgImpGrp" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000003256" arFieldPa
-   value          : rt="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="C
-   value          : hgImp" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000003257" arFieldPart="" defaultAttachName=""/>            </element
-   value          : >            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="ChgImpLoginID" nillable="false" xmlType="false">  
-   value          :               <fieldMapping arFieldId="1000003258" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" de
-   value          : fault=""                enumValues="Pending,Approved,Rejected" maxOccurs="1"                minOccurs="1" name="Approval_Status" nillable="true" xmlTyp
-   value          : e="false">                <fieldMapping arFieldId="1000003264" arFieldPart="" defaultAttachName=""/>            </element>            <element dataTyp
-   value          : e="string" default="" enumValues="Yes"                maxOccurs="1" minOccurs="1" name="Active_Approval"                nillable="true" xmlType="false"
-   value          : >                <fieldMapping arFieldId="1000003278" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string
-   value          : " default="" maxOccurs="1"                minOccurs="1" name="Customer_First_Name"                nillable="false" xmlType="false">                <fi
-   value          : eldMapping arFieldId="1000003297" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccur
-   value          : s="1"                minOccurs="1" name="Customer_Last_Name" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000003298" arFi
-   value          : eldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" na
-   value          : me="Customer_Company" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000003299" arFieldPart="" defaultAttachName=""/>      
-   value          :       </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Customer_Organization"             
-   value          :    nillable="false" xmlType="false">                <fieldMapping arFieldId="1000003300" arFieldPart="" defaultAttachName=""/>            </element>  
-   value          :           <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Customer_Department"                nillable="false" x
-   value          : mlType="false">                <fieldMapping arFieldId="1000003301" arFieldPart="" defaultAttachName=""/>            </element>            <element da
-   value          : taType="string" default="" maxOccurs="1"                minOccurs="1" name="Customer_Internet_E-mail"                nillable="false" xmlType="false">
-   value          :                 <fieldMapping arFieldId="1000003302" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" 
-   value          : default="" maxOccurs="1"                minOccurs="1" name="Customer_Area_Code" nillable="false" xmlType="false">                <fieldMapping arFieldI
-   value          : d="1000003303" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"             
-   value          :    minOccurs="1" name="Customer_Local_Phone"                nillable="false" xmlType="false">                <fieldMapping arFieldId="1000003304" arFie
-   value          : ldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" nam
-   value          : e="Customer_Extension" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000003305" arFieldPart="" defaultAttachName=""/>     
-   value          :        </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Customer_Phone_Number"            
-   value          :     nillable="false" xmlType="false">                <fieldMapping arFieldId="1000003306" arFieldPart="" defaultAttachName=""/>            </element> 
-   value          :            <element dataType="string" default=""                enumValues="No Longer Required,Funding Not Available,To Be Re-Scheduled,Resources Not Av
-   value          : ailable,Successful,Successful with Issues,Unsuccessful,Backed Out,Final Review Complete,Final Review Required,Additional Coding Required,Insufficient Tas
-   value          : k Data,In Verification,In Rollout,Insufficient Change Data,Schedule Conflicts,In Development,In Test,In Build,In Rollback,In Documentation,Vendor Purchas
-   value          : e,Support Group Communication,Task Review,Miscellaneous,Future Enhancement,Approval Error,Manager Intervention,Accepted,Assigned,Built,On Hold"         
-   value          :        maxOccurs="1" minOccurs="1"                name="Change_Req_Prev_Status_Reason" nillable="true" xmlType="false">                <fieldMapping ar
-   value          : FieldId="1000003349" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"       
-   value          :          minOccurs="1" name="z1D_Notification_Message_Tag"                nillable="false" xmlType="false">                <fieldMapping arFieldId="100
-   value          : 0003702" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                min
-   value          : Occurs="1" name="z1D_NT_Support_Group_ID"                nillable="false" xmlType="false">                <fieldMapping arFieldId="1000003711" arFieldP
-   value          : art="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="
-   value          : z1D_NT_Remedy_Login_ID"                nillable="false" xmlType="false">                <fieldMapping arFieldId="1000003713" arFieldPart="" defaultAtta
-   value          : chName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="z1D_NT_Functional_
-   value          : Role"                nillable="false" xmlType="false">                <fieldMapping arFieldId="1000003716" arFieldPart="" defaultAttachName=""/>      
-   value          :       </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="z1D_NT_Pager_Message_Numeric"      
-   value          :           nillable="false" xmlType="false">                <fieldMapping arFieldId="1000003717" arFieldPart="" defaultAttachName=""/>            </elem
-   value          : ent>            <element dataType="string" default=""                enumValues="People Support Staff,People,External"                maxOccurs="1" mi
-   value          : nOccurs="1" name="z1D_Notification_Type"                nillable="true" xmlType="false">                <fieldMapping arFieldId="1000003751" arFieldPar
-   value          : t="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="SL
-   value          : A_Breach_Reason" nillable="false" xmlType="false">                <fieldMapping arFieldId="1000003897" arFieldPart="" defaultAttachName=""/>           
-   value          :  </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="SLA_Breach_Exception"                nil
-   value          : lable="false" xmlType="false">                <fieldMapping arFieldId="1000003898" arFieldPart="" defaultAttachName=""/>            </element>        
-   value          :     <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="z1D_NT_Person_ID" nillable="false" xmlType="false">         
-   value          :        <fieldMapping arFieldId="1000004272" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="
-   value          : " enumValues="Yes"                maxOccurs="1" minOccurs="1" name="Request_Ad-hoc"                nillable="true" xmlType="false">                <fi
-   value          : eldMapping arFieldId="1000005855" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" default="" maxOccur
-   value          : s="1"                minOccurs="1" name="Submitter" nillable="false" xmlType="false">                <fieldMapping arFieldId="2" arFieldPart="" default
-   value          : AttachName=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="CAB_Manager___
-   value          : Change_Coord__"                nillable="false" xmlType="false">                <fieldMapping arFieldId="1000000403" arFieldPart="" defaultAttachName="
-   value          : "/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="ServiceCI" nillable="false
-   value          : " xmlType="false">                <fieldMapping arFieldId="303497300" arFieldPart="" defaultAttachName=""/>            </element>            <element 
-   value          : dataType="string" default=""                enumValues="Change Manager only,Change Coordinator only,Both"                maxOccurs="1" minOccurs="1" na
-   value          : me="z1D_Notify_CA_CM"                nillable="true" xmlType="false">                <fieldMapping arFieldId="1000003284" arFieldPart="" defaultAttachN
-   value          : ame=""/>            </element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="ApprovalProcessName"
-   value          :                 nillable="false" xmlType="false">                <fieldMapping arFieldId="301322300" arFieldPart="" defaultAttachName=""/>            <
-   value          : /element>            <element dataType="string" default="" maxOccurs="1"                minOccurs="1" name="Request_ID" nillable="false" xmlType="false
-   value          : ">                <fieldMapping arFieldId="1" arFieldPart="" defaultAttachName=""/>            </element>            <element dataType="string" defaul
-   value          : t=""                enumValues="Emergency,Expedited,Latent,Normal,No Impact,Standard"                maxOccurs="1" minOccurs="1" name="Class" nillable=
-   value          : "true" xmlType="false">                <fieldMapping arFieldId="1000000568" arFieldPart="" defaultAttachName=""/>            </element>            <el
-   value          : ement dataType="dateTime" default="" maxOccurs="1"                minOccurs="0" name="Submit_Date" nillable="true" xmlType="false">                <fie
-   value          : ldMapping arFieldId="3" arFieldPart="" defaultAttachName=""/>            </element>        </element>    </formMapping></arDocMapping>\
-   ref-groups     : 0 
-}
-reference {
-   type           : 32799
-   datatype       : 1
-   value          : 4\696\<?xml version="1.0" encoding="UTF-8"?><arDocMapping arDocVersion="11" externalSchema=""    generateXsiType="false" name="InputMapping1" schemaSou
-   value          : rce="generated">    <formMapping>        <form distinguishingKeyId="-2147483647"            foreignKeyId="-2147483647" formName="" primaryKeyId="1"/>
-   value          :         <element all="false" dataType="ROOT" default="" maxOccurs="1"            minOccurs="1" name="ROOT" targetNamespace="urn:XM_CHG_InfrastructureCha
-   value          : nge_WS">            <element dataType="string" default="CRQ" maxOccurs="1"                minOccurs="1" name="Infrastructure_Change_ID"               
-   value          :  nillable="false" xmlType="false"/>        </element>    </formMapping></arDocMapping>\
-   ref-groups     : 0 
-}
-reference {
-   type           : 32800
-   datatype       : 1
-   value          : 4\23773\<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions targetNamespace="urn:XM_CHG_InfrastructureChange_WS" xmlns:s0="urn:XM_CHG_Infrastructur
-   value          : eChange_WS" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlso
-   value          : ap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"> <wsdl:types>  <xsd:schema elementFormDefault="qualified" targetNamespace="urn:XM_CHG_Infr
-   value          : astructureChange_WS">   <xsd:element name="GetChange" type="s0:InputMapping1"/>   <xsd:complexType name="InputMapping1">    <xsd:sequence>     <x
-   value          : sd:element default="CRQ" maxOccurs="1" minOccurs="1" name="Infrastructure_Change_ID" nillable="false" type="xsd:string"/>    </xsd:sequence>   </xsd:
-   value          : complexType>   <xsd:element name="GetChangeResponse" type="s0:OutputMapping1"/>   <xsd:complexType name="OutputMapping1">    <xsd:sequence>     <
-   value          : xsd:element default="Draft" maxOccurs="1" minOccurs="1" name="Change_Request_Status" nillable="false" type="s0:Change_Request_StatusType"/>     <xsd:el
-   value          : ement maxOccurs="1" minOccurs="1" name="Department" nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name="Site_Group"
-   value          :  nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name="Region" nillable="false" type="xsd:string"/>     <xsd:elemen
-   value          : t maxOccurs="1" minOccurs="1" name="Escalated_" nillable="true" type="s0:Escalated_Type"/>     <xsd:element maxOccurs="1" minOccurs="1" name="Site" nil
-   value          : lable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name="SLM_Priority2" nillable="true" type="s0:SLM_Priority2Type"/>    
-   value          :  <xsd:element maxOccurs="1" minOccurs="1" name="Description" nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name="Lo
-   value          : cation_Company" nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name="Organization" nillable="false" type="xsd:string
-   value          : "/>     <xsd:element maxOccurs="1" minOccurs="1" name="Support_Organization" nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minO
-   value          : ccurs="1" name="Support_Group_Name" nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name="Last_Name" nillable="false"
-   value          :  type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name="First_Name" nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="
-   value          : 1" minOccurs="1" name="Middle_Initial" nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name="Phone_Number" nillable="
-   value          : false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name="Categorization_Tier_1" nillable="false" type="xsd:string"/>     <xsd:el
-   value          : ement maxOccurs="1" minOccurs="1" name="Categorization_Tier_2" nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name="
-   value          : Categorization_Tier_3" nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name="Company" nillable="false" type="xsd:stri
-   value          : ng"/>     <xsd:element maxOccurs="1" minOccurs="1" name="Status_Reason" nillable="true" type="s0:Status_ReasonType"/>     <xsd:element maxOccurs="1" 
-   value          : minOccurs="1" name="Detailed_Description" nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name="Urgency" nillable="tr
-   value          : ue" type="s0:UrgencyType"/>     <xsd:element maxOccurs="1" minOccurs="1" name="Impact" nillable="true" type="s0:ImpactType"/>     <xsd:element maxOcc
-   value          : urs="1" minOccurs="1" name="Priority" nillable="true" type="s0:SLM_Priority2Type"/>     <xsd:element maxOccurs="1" minOccurs="1" name="Risk_Level" nill
-   value          : able="true" type="s0:Risk_LevelType"/>     <xsd:element maxOccurs="1" minOccurs="1" name="Change_Type" nillable="true" type="s0:Change_TypeType"/>   
-   value          :   <xsd:element maxOccurs="1" minOccurs="1" name="Infrastructure_Change_ID" nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccur
-   value          : s="1" name="Company3" nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name="Lead_Time" nillable="true" type="xsd:int"
-   value          : />     <xsd:element maxOccurs="1" minOccurs="1" name="Reason_For_Change" nillable="true" type="s0:Reason_For_ChangeType"/>     <xsd:element maxOccurs
-   value          : ="1" minOccurs="1" name="Requestor_ID" nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name="Support_Group_Name2" nil
-   value          : lable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name="Support_Organization2" nillable="false" type="xsd:string"/>     
-   value          : <xsd:element maxOccurs="1" minOccurs="1" name="Actual_Start_Date" nillable="true" type="xsd:dateTime"/>     <xsd:element maxOccurs="1" minOccurs="1" na
-   value          : me="Requested_Start_Date" nillable="true" type="xsd:dateTime"/>     <xsd:element maxOccurs="1" minOccurs="1" name="Scheduled_Start_Date" nillable="true
-   value          : " type="xsd:dateTime"/>     <xsd:element maxOccurs="1" minOccurs="1" name="Earliest_Start_Date" nillable="true" type="xsd:dateTime"/>     <xsd:elemen
-   value          : t maxOccurs="1" minOccurs="1" name="Scheduled_End_Date" nillable="true" type="xsd:dateTime"/>     <xsd:element maxOccurs="1" minOccurs="1" name="Reques
-   value          : ted_End_Date" nillable="true" type="xsd:dateTime"/>     <xsd:element maxOccurs="1" minOccurs="1" name="Actual_End_Date" nillable="true" type="xsd:dateT
-   value          : ime"/>     <xsd:element maxOccurs="1" minOccurs="1" name="CAB_Manager_Login" nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minO
-   value          : ccurs="1" name="SLM_Priority" nillable="true" type="s0:SLM_Priority2Type"/>     <xsd:element maxOccurs="1" minOccurs="1" name="Product_Cat_Tier_1" nill
-   value          : able="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name="Product_Cat_Tier_2" nillable="false" type="xsd:string"/>     <xsd
-   value          : :element maxOccurs="1" minOccurs="1" name="Product_Cat_Tier_3" nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name="
-   value          : Environment" nillable="true" type="s0:EnvironmentType"/>     <xsd:element maxOccurs="1" minOccurs="1" name="Change_Request_Prev_Status" nillable="true"
-   value          :  type="s0:Change_Request_StatusType"/>     <xsd:element maxOccurs="1" minOccurs="1" name="SLM_Status" nillable="true" type="s0:SLM_StatusType"/>     
-   value          : <xsd:element maxOccurs="1" minOccurs="1" name="Approval_Phase_Name" nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" n
-   value          : ame="Timing_Reason" nillable="true" type="s0:Timing_ReasonType"/>     <xsd:element maxOccurs="1" minOccurs="1" name="RejectApprovalStatusReason" nillab
-   value          : le="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name="SLA_Response_Status" nillable="true" type="s0:SLA_Response_StatusType
-   value          : "/>     <xsd:element maxOccurs="1" minOccurs="1" name="Customer_Country_Code" nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" min
-   value          : Occurs="1" name="ASORG" nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name="ASCPY" nillable="false" type="xsd:strin
-   value          : g"/>     <xsd:element maxOccurs="1" minOccurs="1" name="ASGRP" nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name
-   value          : ="ASCHG" nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name="ASLOGID" nillable="false" type="xsd:string"/>     <x
-   value          : sd:element maxOccurs="1" minOccurs="1" name="ASGRPID" nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name="Approval_
-   value          : Definition_ID" nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name="ChgImpCpy" nillable="false" type="xsd:string"/>
-   value          :      <xsd:element maxOccurs="1" minOccurs="1" name="ChgImpOrg" nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name
-   value          : ="ChgImpGrp" nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name="ChgImp" nillable="false" type="xsd:string"/>    
-   value          :  <xsd:element maxOccurs="1" minOccurs="1" name="ChgImpLoginID" nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name="
-   value          : Approval_Status" nillable="true" type="s0:Approval_StatusType"/>     <xsd:element maxOccurs="1" minOccurs="1" name="Active_Approval" nillable="true" ty
-   value          : pe="s0:Active_ApprovalType"/>     <xsd:element maxOccurs="1" minOccurs="1" name="Customer_First_Name" nillable="false" type="xsd:string"/>     <xsd:e
-   value          : lement maxOccurs="1" minOccurs="1" name="Customer_Last_Name" nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name="Cu
-   value          : stomer_Company" nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name="Customer_Organization" nillable="false" type="x
-   value          : sd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name="Customer_Department" nillable="false" type="xsd:string"/>     <xsd:element maxOccurs=
-   value          : "1" minOccurs="1" name="Customer_Internet_E-mail" nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name="Customer_Area
-   value          : _Code" nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name="Customer_Local_Phone" nillable="false" type="xsd:string"
-   value          : />     <xsd:element maxOccurs="1" minOccurs="1" name="Customer_Extension" nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccu
-   value          : rs="1" name="Customer_Phone_Number" nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name="Change_Req_Prev_Status_Reas
-   value          : on" nillable="true" type="s0:Change_Req_Prev_Status_ReasonType"/>     <xsd:element maxOccurs="1" minOccurs="1" name="z1D_Notification_Message_Tag" nill
-   value          : able="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name="z1D_NT_Support_Group_ID" nillable="false" type="xsd:string"/>    
-   value          :  <xsd:element maxOccurs="1" minOccurs="1" name="z1D_NT_Remedy_Login_ID" nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="
-   value          : 1" name="z1D_NT_Functional_Role" nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name="z1D_NT_Pager_Message_Numeric" 
-   value          : nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name="z1D_Notification_Type" nillable="true" type="s0:z1D_Notificatio
-   value          : n_TypeType"/>     <xsd:element maxOccurs="1" minOccurs="1" name="SLA_Breach_Reason" nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="
-   value          : 1" minOccurs="1" name="SLA_Breach_Exception" nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name="z1D_NT_Person_ID" 
-   value          : nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name="Request_Ad-hoc" nillable="true" type="s0:Active_ApprovalType"/>
-   value          :      <xsd:element maxOccurs="1" minOccurs="1" name="Submitter" nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name
-   value          : ="CAB_Manager___Change_Coord__" nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name="ServiceCI" nillable="false" typ
-   value          : e="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name="z1D_Notify_CA_CM" nillable="true" type="s0:z1D_Notify_CA_CMType"/>     <xsd:eleme
-   value          : nt maxOccurs="1" minOccurs="1" name="ApprovalProcessName" nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name="Reque
-   value          : st_ID" nillable="false" type="xsd:string"/>     <xsd:element maxOccurs="1" minOccurs="1" name="Class" nillable="true" type="s0:ClassType"/>     <xsd:
-   value          : element maxOccurs="1" minOccurs="0" name="Submit_Date" nillable="true" type="xsd:dateTime"/>    </xsd:sequence>   </xsd:complexType>   <xsd:simpleT
-   value          : ype name="Change_Request_StatusType">    <xsd:restriction base="xsd:string">     <xsd:enumeration value="Draft"/>     <xsd:enumeration value="Reque
-   value          : st For Authorization"/>     <xsd:enumeration value="Request For Change"/>     <xsd:enumeration value="Planning In Progress"/>     <xsd:enumeration 
-   value          : value="Scheduled For Review"/>     <xsd:enumeration value="Scheduled For Approval"/>     <xsd:enumeration value="Scheduled"/>     <xsd:enumeration 
-   value          : value="Implementation In Progress"/>     <xsd:enumeration value="Pending"/>     <xsd:enumeration value="Rejected"/>     <xsd:enumeration value="Com
-   value          : pleted"/>     <xsd:enumeration value="Closed"/>     <xsd:enumeration value="Cancelled"/>    </xsd:restriction>   </xsd:simpleType>   <xsd:simpl
-   value          : eType name="Escalated_Type">    <xsd:restriction base="xsd:string">     <xsd:enumeration value="Yes"/>     <xsd:enumeration value="No"/>    </xsd
-   value          : :restriction>   </xsd:simpleType>   <xsd:simpleType name="SLM_Priority2Type">    <xsd:restriction base="xsd:string">     <xsd:enumeration value="
-   value          : Critical"/>     <xsd:enumeration value="High"/>     <xsd:enumeration value="Medium"/>     <xsd:enumeration value="Low"/>    </xsd:restriction> 
-   value          :   </xsd:simpleType>   <xsd:simpleType name="Status_ReasonType">    <xsd:restriction base="xsd:string">     <xsd:enumeration value="No Longer Requir
-   value          : ed"/>     <xsd:enumeration value="Funding Not Available"/>     <xsd:enumeration value="To Be Re-Scheduled"/>     <xsd:enumeration value="Resources 
-   value          : Not Available"/>     <xsd:enumeration value="Successful"/>     <xsd:enumeration value="Successful with Issues"/>     <xsd:enumeration value="Unsucc
-   value          : essful"/>     <xsd:enumeration value="Backed Out"/>     <xsd:enumeration value="Final Review Complete"/>     <xsd:enumeration value="Final Review R
-   value          : equired"/>     <xsd:enumeration value="Additional Coding Required"/>     <xsd:enumeration value="Insufficient Task Data"/>     <xsd:enumeration val
-   value          : ue="In Verification"/>     <xsd:enumeration value="In Rollout"/>     <xsd:enumeration value="Insufficient Change Data"/>     <xsd:enumeration value
-   value          : ="Schedule Conflicts"/>     <xsd:enumeration value="In Development"/>     <xsd:enumeration value="In Test"/>     <xsd:enumeration value="In Build"/
-   value          : >     <xsd:enumeration value="In Rollback"/>     <xsd:enumeration value="In Documentation"/>     <xsd:enumeration value="Vendor Purchase"/>     <
-   value          : xsd:enumeration value="Support Group Communication"/>     <xsd:enumeration value="Task Review"/>     <xsd:enumeration value="Miscellaneous"/>     <
-   value          : xsd:enumeration value="Future Enhancement"/>     <xsd:enumeration value="Approval Error"/>     <xsd:enumeration value="Manager Intervention"/>     
-   value          : <xsd:enumeration value="Accepted"/>     <xsd:enumeration value="Assigned"/>     <xsd:enumeration value="Built"/>     <xsd:enumeration value="On Hol
-   value          : d"/>     <xsd:enumeration value="Automatically Closed"/>    </xsd:restriction>   </xsd:simpleType>   <xsd:simpleType name="UrgencyType">    <xs
-   value          : d:restriction base="xsd:string">     <xsd:enumeration value="1-Critical"/>     <xsd:enumeration value="2-High"/>     <xsd:enumeration value="3-Medi
-   value          : um"/>     <xsd:enumeration value="4-Low"/>    </xsd:restriction>   </xsd:simpleType>   <xsd:simpleType name="ImpactType">    <xsd:restriction b
-   value          : ase="xsd:string">     <xsd:enumeration value="1-Extensive/Widespread"/>     <xsd:enumeration value="2-Significant/Large"/>     <xsd:enumeration val
-   value          : ue="3-Moderate/Limited"/>     <xsd:enumeration value="4-Minor/Localized"/>    </xsd:restriction>   </xsd:simpleType>   <xsd:simpleType name="Risk
-   value          : _LevelType">    <xsd:restriction base="xsd:string">     <xsd:enumeration value="Risk Level 1"/>     <xsd:enumeration value="Risk Level 2"/>     <
-   value          : xsd:enumeration value="Risk Level 3"/>     <xsd:enumeration value="Risk Level 4"/>     <xsd:enumeration value="Risk Level 5"/>    </xsd:restriction
-   value          : >   </xsd:simpleType>   <xsd:simpleType name="Change_TypeType">    <xsd:restriction base="xsd:string">     <xsd:enumeration value="Project"/>  
-   value          :    <xsd:enumeration value="Change"/>     <xsd:enumeration value="Release"/>     <xsd:enumeration value="Asset Configuration"/>     <xsd:enumeration
-   value          :  value="Asset Management"/>     <xsd:enumeration value="Asset Lease"/>     <xsd:enumeration value="Purchase Requisition"/>     <xsd:enumeration val
-   value          : ue="Asset Maintenance"/>     <xsd:enumeration value="Automation System"/>    </xsd:restriction>   </xsd:simpleType>   <xsd:simpleType name="Reaso
-   value          : n_For_ChangeType">    <xsd:restriction base="xsd:string">     <xsd:enumeration value="Fix/Repair"/>     <xsd:enumeration value="New Functionality"/
-   value          : >     <xsd:enumeration value="Maintenance"/>     <xsd:enumeration value="Upgrade"/>     <xsd:enumeration value="Other"/>    </xsd:restriction> 
-   value          :   </xsd:simpleType>   <xsd:simpleType name="EnvironmentType">    <xsd:restriction base="xsd:string">     <xsd:enumeration value="Production"/>   
-   value          :   <xsd:enumeration value="Model Office"/>     <xsd:enumeration value="Hot Backup"/>     <xsd:enumeration value="Development"/>    </xsd:restriction
-   value          : >   </xsd:simpleType>   <xsd:simpleType name="SLM_StatusType">    <xsd:restriction base="xsd:string">     <xsd:enumeration value="No Service Targ
-   value          : et Assigned"/>     <xsd:enumeration value="Within the Service Target"/>     <xsd:enumeration value="Service Target Warning"/>     <xsd:enumeration 
-   value          : value="Service Targets Breached"/>     <xsd:enumeration value="All Service Targets Breached"/>    </xsd:restriction>   </xsd:simpleType>   <xsd:s
-   value          : impleType name="Timing_ReasonType">    <xsd:restriction base="xsd:string">     <xsd:enumeration value="Customer/business need"/>     <xsd:enumerati
-   value          : on value="Insufficient lead-time"/>     <xsd:enumeration value="Known error correction"/>     <xsd:enumeration value="Scheduling conflict"/>    </x
-   value          : sd:restriction>   </xsd:simpleType>   <xsd:simpleType name="SLA_Response_StatusType">    <xsd:restriction base="xsd:string">     <xsd:enumeration
-   value          :  value="No SLA Assigned"/>     <xsd:enumeration value="Within the SLA"/>     <xsd:enumeration value="Escalated Within the SLA"/>     <xsd:enumerati
-   value          : on value="SLA Breached"/>    </xsd:restriction>   </xsd:simpleType>   <xsd:simpleType name="Approval_StatusType">    <xsd:restriction base="xsd:s
-   value          : tring">     <xsd:enumeration value="Pending"/>     <xsd:enumeration value="Approved"/>     <xsd:enumeration value="Rejected"/>    </xsd:restricti
-   value          : on>   </xsd:simpleType>   <xsd:simpleType name="Active_ApprovalType">    <xsd:restriction base="xsd:string">     <xsd:enumeration value="Yes"/>
-   value          :     </xsd:restriction>   </xsd:simpleType>   <xsd:simpleType name="Change_Req_Prev_Status_ReasonType">    <xsd:restriction base="xsd:string">  
-   value          :    <xsd:enumeration value="No Longer Required"/>     <xsd:enumeration value="Funding Not Available"/>     <xsd:enumeration value="To Be Re-Scheduled"
-   value          : />     <xsd:enumeration value="Resources Not Available"/>     <xsd:enumeration value="Successful"/>     <xsd:enumeration value="Successful with Iss
-   value          : ues"/>     <xsd:enumeration value="Unsuccessful"/>     <xsd:enumeration value="Backed Out"/>     <xsd:enumeration value="Final Review Complete"/>
-   value          :      <xsd:enumeration value="Final Review Required"/>     <xsd:enumeration value="Additional Coding Required"/>     <xsd:enumeration value="Insuffi
-   value          : cient Task Data"/>     <xsd:enumeration value="In Verification"/>     <xsd:enumeration value="In Rollout"/>     <xsd:enumeration value="Insufficien
-   value          : t Change Data"/>     <xsd:enumeration value="Schedule Conflicts"/>     <xsd:enumeration value="In Development"/>     <xsd:enumeration value="In Tes
-   value          : t"/>     <xsd:enumeration value="In Build"/>     <xsd:enumeration value="In Rollback"/>     <xsd:enumeration value="In Documentation"/>     <xsd:
-   value          : enumeration value="Vendor Purchase"/>     <xsd:enumeration value="Support Group Communication"/>     <xsd:enumeration value="Task Review"/>     <xs
-   value          : d:enumeration value="Miscellaneous"/>     <xsd:enumeration value="Future Enhancement"/>     <xsd:enumeration value="Approval Error"/>     <xsd:enum
-   value          : eration value="Manager Intervention"/>     <xsd:enumeration value="Accepted"/>     <xsd:enumeration value="Assigned"/>     <xsd:enumeration value="
-   value          : Built"/>     <xsd:enumeration value="On Hold"/>    </xsd:restriction>   </xsd:simpleType>   <xsd:simpleType name="z1D_Notification_TypeType">  
-   value          :   <xsd:restriction base="xsd:string">     <xsd:enumeration value="People Support Staff"/>     <xsd:enumeration value="People"/>     <xsd:enumeratio
-   value          : n value="External"/>    </xsd:restriction>   </xsd:simpleType>   <xsd:simpleType name="z1D_Notify_CA_CMType">    <xsd:restriction base="xsd:strin
-   value          : g">     <xsd:enumeration value="Change Manager only"/>     <xsd:enumeration value="Change Coordinator only"/>     <xsd:enumeration value="Both"/>
-   value          :     </xsd:restriction>   </xsd:simpleType>   <xsd:simpleType name="ClassType">    <xsd:restriction base="xsd:string">     <xsd:enumeration valu
-   value          : e="Emergency"/>     <xsd:enumeration value="Expedited"/>     <xsd:enumeration value="Latent"/>     <xsd:enumeration value="Normal"/>     <xsd:enu
-   value          : meration value="No Impact"/>     <xsd:enumeration value="Standard"/>    </xsd:restriction>   </xsd:simpleType>   <xsd:element name="Authenticatio
-   value          : nInfo" type="s0:AuthenticationInfo"/>   <xsd:complexType name="AuthenticationInfo">    <xsd:sequence>     <xsd:element name="userName" type="xsd:st
-   value          : ring"/>     <xsd:element name="password" type="xsd:string"/>     <xsd:element minOccurs="0" name="authentication" type="xsd:string"/>     <xsd:elem
-   value          : ent minOccurs="0" name="locale" type="xsd:string"/>     <xsd:element minOccurs="0" name="timeZone" type="xsd:string"/>    </xsd:sequence>   </xsd:c
-   value          : omplexType>  </xsd:schema> </wsdl:types>   <wsdl:message name="ARAuthenticate">      <wsdl:part element="s0:AuthenticationInfo" name="parameter
-   value          : s">      </wsdl:part>   </wsdl:message>   <wsdl:message name="GetChangeSoapIn">      <wsdl:part element="s0:GetChange" name="parameters"> 
-   value          :      </wsdl:part>   </wsdl:message>   <wsdl:message name="GetChangeSoapOut">      <wsdl:part element="s0:GetChangeResponse" name="parameters">
-   value          :       </wsdl:part>   </wsdl:message>   <wsdl:portType name="XM_CHG_InfrastructureChangePortType">      <wsdl:operation name="GetChange">  
-   value          :        <wsdl:input message="s0:GetChangeSoapIn">       </wsdl:input>         <wsdl:output message="s0:GetChangeSoapOut">       </wsdl:output>
-   value          :       </wsdl:operation>   </wsdl:portType>   <wsdl:binding name="XM_CHG_InfrastructureChangeSoapBinding" type="s0:XM_CHG_InfrastructureChangePortTy
-   value          : pe">      <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>      <wsdl:operation name="GetChange">         <soap
-   value          : :operation soapAction="urn:XM_CHG_InfrastructureChange_WS/GetChange" style="document"/>         <wsdl:input>            <soap:header message="s0:AR
-   value          : Authenticate" part="parameters" use="literal">            </soap:header>            <soap:body use="literal"/>         </wsdl:input>         
-   value          : <wsdl:output>            <soap:body use="literal"/>         </wsdl:output>      </wsdl:operation>   </wsdl:binding>   <wsdl:service name="
-   value          : XM_CHG_InfrastructureChange_WSService">  <wsdl:documentation>xMatters web service to obtain information from CHG:infrastrucutre Change.  This web se
-   value          : rvice is used to GET data from the source form CHG:Infrastructure Change rather than the join form CHG:ChangeInterface; however CHG:ChangeInterface shoul
-   value          : d be used to update changes as it is the method BMC supports for ensuring workflow associated with CHG:Infrastructure Change is run.  </wsdl:documentatio
-   value          : n>      <wsdl:port binding="s0:XM_CHG_InfrastructureChangeSoapBinding" name="XM_CHG_InfrastructureChangeSoap">         <soap:address location="@LOC
-   value          : ATION@"/>      </wsdl:port>   </wsdl:service></wsdl:definitions>\
-   ref-groups     : 0 
-}
-reference {
-   type           : 32802
-   datatype       : 1
-   value          : 4\92\http://vic-vw-remedy91:8080/arsys/WSDL/public/vic-vw-remedy91/XM_CHG_InfrastructureChange_WS\
-   ref-groups     : 0 
-}
-end
