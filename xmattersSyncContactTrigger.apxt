@@ -1,0 +1,30 @@
+trigger xmattersSyncContactTrigger on Contact (after update) {
+	if (Trigger.New[0].Sync_With_xMatters__c){
+	String endpoint			= 'https://brandonwalton.cs1.xmatters.com/api/integration/1/functions/78638587-af54-4bca-a7df-d210fa5b4cb4/triggers?apiKey=a8481e27-d2a0-49dd-9db1-2cc19399f903';
+
+	string firstname		= '"FirstName":' + '"' + Trigger.New[0].FirstName + '"';
+	string lastname			= '"LastName":' + '"' + Trigger.New[0].LastName + '"';
+	string mobilephone		= '"MobilePhone":' + '"' + Trigger.New[0].MobilePhone + '"';
+	string phone			= '"HomePhone":' + '"' + Trigger.New[0].Phone + '"';
+	string email			= '"Email":' + '"' + Trigger.New[0].Email + '"';
+	string ContactUid		= '"ID":' + '"' + Trigger.New[0].Id + '"';
+	string accountname		= '"AccountName":' + '"' + Trigger.New[0].Account + '"';
+ 	string department		= '"Department":' + '"' + Trigger.New[0].Department + '"';
+        
+	String payload	= '{' + ContactUid + ',' + lastname + ',' + firstname + ',' + mobilephone + ',' + phone + ',' + email + ',' + department + ',' + accountname + '}';
+            xMattersreq.xRESTCall(endpoint, payload); 
+    } else {
+	String endpoint			= 'https://brandonwalton.cs1.xmatters.com/api/integration/1/functions/df58970a-c9c3-417f-bf86-7e408554cb48/triggers?apiKey=f7e77f04-6e36-4c87-b35d-d6f044ff49d0';
+
+	string firstname		= '"FirstName":' + '"' + Trigger.New[0].FirstName + '"';
+	string lastname			= '"LastName":' + '"' + Trigger.New[0].LastName + '"';
+	string mobilephone		= '"MobilePhone":' + '"' + Trigger.New[0].MobilePhone + '"';
+	string phone			= '"HomePhone":' + '"' + Trigger.New[0].Phone + '"';
+	string email			= '"Email":' + '"' + Trigger.New[0].Email + '"';
+	string ContactUid		= '"ID":' + '"' + Trigger.New[0].Id + '"';
+	string accountname		= '"AccountName":' + '"' + Trigger.New[0].Account + '"';
+	string department		= '"Department":' + '"' + Trigger.New[0].Department + '"';
+	String payload	= '{' + ContactUid + ',' + lastname + ',' + firstname + ',' + mobilephone + ',' + phone + ',' + email + ',' + department + ',' + accountname + '}';
+            xMattersreq.xRESTCall(endpoint, payload);         
+    }
+}
