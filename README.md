@@ -11,8 +11,8 @@ This Salesforce Data Sync Add-on is designed to sync Salesforce CONTACTS with xM
 </kbd>
 
 # Pre-Requisites
-* xMatters account - If you don't have one, get started with [xMatters](https://www.xmatters.com)
-* Salesforce account - If you don't have one, you can setup a free  [Salesforce Developer Org](https://developer.salesforce.com)
+* Admin Access to an xMatters account - If you don't have one, get started with [xMatters](https://www.xmatters.com)
+* Admin Access to a Salesforce account - If you don't have one, you can setup a free  [Salesforce Developer Org](https://developer.salesforce.com)
 
 # Files
 * [SalesForceDataSync.zip](SalesForceDataSync.zip) - xMatters Communication Plan for Salesforce Data Sync 
