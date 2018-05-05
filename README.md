@@ -3,7 +3,7 @@
 * Version 1.0 of Salesforce Customer Data Sync
 * Written by B. Walton 5.4.2018
 
-This Salesforce Data Sync Add-on is designed to sync Salesforce CONTACTS with xMatters using a custom APEX trigger on the contact record (xmattersSyncContactTrigger.apxt).  
+This Salesforce Data Sync Add-on is designed to sync Salesforce Contact Records with xMatters. Sync is triggered by using a custom field on the Contact Record called 'Sync With xMatters'.  
 
 
 <kbd>
