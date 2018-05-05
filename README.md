@@ -65,7 +65,8 @@ The following section covers installation details
 ## Adding a New User
 1. While Logged into Salesforce, Navigate to a Contact Record
 2. Select 'Edit' Contact Record, Check the Sync With xMatters Checkbox and Save
-3. While Logged into xMatters, Navigate to xMatters Reports Tab and search for an 'xMatters Person' event (New Search -> Message Subject contains 'xMatters Person'). Find xMatters Person [Create New].
+3. While Logged into xMatters, Navigate to xMatters Reports Tab and search for an 'xMatters Person' event 
+(New Search -> Message Subject contains 'xMatters Person'). Find xMatters Person [Create New].
 4. Confirm User has been Created in the Users Section
 5. Confirm Group has been Created in the Groups Section
 6. If Event, User or Group is Missing Check [xMatters Activity Stream](https://help.xmatters.com/OnDemand/xmodwelcome/integrationbuilder/activity-stream.htm)
@@ -74,7 +75,8 @@ The following section covers installation details
 ## Updating a User
 1. While Logged into Salesforce, Navigate to a Contact Record
 2. Select 'Edit' Contact Record, Confirm the Sync With xMatters Checkbox is selected and Edit The User Data. Click Save
-3. While Logged into xMatters, Navigate to xMatters Reports Tab and search for an 'xMatters Person' event (New Search -> Message Subject contains 'xMatters Person'). Find xMatters Person [Update].
+3. While Logged into xMatters, Navigate to xMatters Reports Tab and search for an 'xMatters Person' event 
+(New Search -> Message Subject contains 'xMatters Person'). Find xMatters Person [Update].
 4. Confirm User has been Updated in the Users Section
 5. If Event, User or Group is Missing Check [xMatters Activity Stream](https://help.xmatters.com/OnDemand/xmodwelcome/integrationbuilder/activity-stream.htm)
 6. If Activity Stream is Empty, Check your  [Salesforce Execution Logs](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_debugging_system_log_console.htm)
@@ -82,7 +84,8 @@ The following section covers installation details
 ## Deleting a User
 1. While Logged into Salesforce, Navigate to a Contact Record
 2. Select 'Edit' Contact Record, Uncheck the Sync With xMatters Checkbox and Save
-3. While Logged into xMatters, Navigate to xMatters Reports Tab and search for an 'xMatters Person' event (New Search -> Message Subject contains 'xMatters Person'). Find xMatters Person [Delete].
+3. While Logged into xMatters, Navigate to xMatters Reports Tab and search for an 'xMatters Person' event 
+(New Search -> Message Subject contains 'xMatters Person'). Find xMatters Person [Delete].
 4. Confirm User has been Removed in the Users Section
 5. If the User is the only Member of the Group Roster, Group should be Deleted
 6. If Event is missing, User or Group has not been deleted Check [xMatters Activity Stream](https://help.xmatters.com/OnDemand/xmodwelcome/integrationbuilder/activity-stream.htm)
@@ -95,4 +98,4 @@ Check for errors and additional information in the following places:
 1. [Check xMatters Activity Stream](https://help.xmatters.com/OnDemand/xmodwelcome/integrationbuilder/activity-stream.htm)
 2. [Check Salesforce Logs](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_debugging_system_log_console.htm)
 
-Or Contact xMatters Consulting Services if You'd like to setup an engagement: [Contact Consulting Services](mailto:bwalton@xmatters.com)
+Alternatively, contact xMatters Consulting Services if you'd like us to implement or modify this integration for you: [Contact Consulting Services](mailto:bwalton@xmatters.com)
