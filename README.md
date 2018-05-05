@@ -1,7 +1,7 @@
 
 # Salesforce Data Sync
 * Version 1.0 of Salesforce Customer Data Sync
-* Written by B. Walton 5.4.2018
+* Written by B. Walton - 5.4.2018
 
 This Salesforce Data Sync Add-on is designed to sync Salesforce Contact Records with xMatters. Sync is triggered by using a custom field on the Contact Record called 'Sync With xMatters'.  
 
@@ -33,7 +33,7 @@ This Integration uses a custom property added to the Salesforce Contact Record. 
 This Section explains the Components of the xMatters [SalesForceDataSync.zip](SalesForceDataSync.zip) Communication Plan.
 If you're Unfamiliar with xMatters Communication Plans, learn more [here](https://help.xmatters.com/OnDemand/xmodwelcome/communicationplanbuilder/managecommunicationplans.htm)
 
-####Forms
+######Forms
 **Customer Sync Initiated -** Used to provide a notification record of the Sync process in xMatters.  
 1. Layout - Recipients should be added in the 'Recipients' section of the Form Layout. If modifications will be made to the Salesforce Payload, it's recommended to update or add Properties.
 2. Message - Email Notification is the only type in Use. the 'Type' Property is used to determine the Sync Process, which will be one of the following:
@@ -42,7 +42,7 @@ If you're Unfamiliar with xMatters Communication Plans, learn more [here](https:
 * Delete - Sync is Deleting a User in xMatters.
 3. Responses - Not Used in this Integration
 
-####Integration Builder
+######Integration Builder
 **Inbound Integrations**
 1. Create Contact - Used to Create or Update xMatters User
 2. Delete Contact - Used to Delete xMatters User
