@@ -80,7 +80,6 @@ The following section covers installation details
 6. If Activity Stream is Empty, Check your  [Salesforce Execution Logs](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_debugging_system_log_console.htm)
 
 ## Deleting a User
-## Updating a New User
 1. While Logged into Salesforce, Navigate to a Contact Record
 2. Select 'Edit' Contact Record, Uncheck the Sync With xMatters Checkbox and Save
 3. While Logged into xMatters, Navigate to xMatters Reports Tab and search for an 'xMatters Person' event (New Search -> Message Subject contains 'xMatters Person'). Find xMatters Person [Delete].
