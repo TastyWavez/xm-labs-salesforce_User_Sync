@@ -5,7 +5,7 @@ global class xMattersHttpCalloutMock implements HttpCalloutMock {
         // Create a fake response
         HttpResponse response = new HttpResponse();
         response.setHeader('Content-Type', 'application/json');
-        response.setBody('{"requestId": "winnerWinnerChickenDinner"}');
+        response.setBody('{"requestId": "xMtestSuccessful"}');
         response.setStatusCode(202);
         return response; 
     }

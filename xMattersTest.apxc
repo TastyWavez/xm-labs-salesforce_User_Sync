@@ -5,7 +5,7 @@ public class xMattersTest {
         Case ca = new Case (Subject='Test xMatters Integration');
             ca.Status = 'New';
         	ca.Origin = 'Phone';
-        	ca.Description = 'Hello, This is A Test';
+        	ca.Description = 'Hello, This is an xM Test';
         Test.setMock(HttpCalloutMock.class, new xMattersHttpCallOutmock());
         insert ca;
 
@@ -18,11 +18,11 @@ public class xMattersTest {
          
          ID acctID = ac.ID;
          
-        Case ca = new Case (Subject='Test xMatters Integration');
+        Case ca = new Case (Subject='Testing xMatters Integration');
             ca.Status = 'New';
         	ca.Origin = 'Phone';
          	ca.AccountID = acctID;
-    	    ca.Description = 'Hello, This is A Test';
+    	    ca.Description = 'Hello, This is an xM Test';
         Test.setMock(HttpCalloutMock.class, new xMattersHttpCallOutmock());
         insert ca;
 
