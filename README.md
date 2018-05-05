@@ -16,7 +16,6 @@ This Salesforce Data Sync Add-on is designed to sync Salesforce Contact Records 
 
 # Files
 * [SalesForceDataSync.zip](SalesForceDataSync.zip) - xMatters Communication Plan for Salesforce Data Sync 
-* [xMContactSync.apxc](xMContactSync.apxc) - APEX Class for xMatters Contact Sync. Add this file to your Salesforce Developer Console.
 * [xMattersHttpCalloutMock.apxc](xMattersHttpCalloutMock.apxc) - APEX Class for xMatters HTTP Mock Callouts.  Required to pass Code Coverage in Salesforce. Add this file to your Salesforce Developer Console.
 * [xMattersHttpCalloutMock.apxc](xMattersHttpCalloutMock.apxc) - APEX Class for xMatters HTTP Mock Callouts.  Required to pass Code Coverage in Salesforce. Add this file to your Salesforce Developer Console.
 * [xMattersTest.apxc](xMattersTest.apxc) - APEX Class for testing xMatters HTTP Mock Callouts.  Required to pass Code Coverage in Salesforce. Add this file to your Salesforce Developer Console.
