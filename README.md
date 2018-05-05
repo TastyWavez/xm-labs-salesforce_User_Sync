@@ -28,7 +28,7 @@ This Salesforce Data Sync Add-on is designed to sync Salesforce Contact Records 
 This Integration uses a custom property added to the Salesforce Contact Record.  Using a Trigger on the Contact Record, Salesforce sends user Details to xMatters Integration Builder to process the Sync, either Create/Updating Contact or Deleting the Contact.
 * This Integration uses the Salesforce Unique Identifier as the xMatters Login.
 * Additional Modifications Could be made to Sync with Salesforce Users, or to Create xMatters Login with other properties. Those are not covered in this Integration. 
-* [Contact xMatters Consulting Services if you'd like assistance with Modifications and Customizations](mailto:bwalton@xmatters.com)
+* Contact [xMatters Consulting Services](mailto:bwalton@xmatters.com) if you'd like assistance with Modifications and Customizations
 
 # Installation
 The following section covers installation details 
@@ -36,8 +36,10 @@ The following section covers installation details
 ## xMatters set up
 1. Import [SalesForceDataSync.zip](SalesForceDataSync.zip) Communication Plan
 2. Navigate to the 'Integration Builder' Section of the Communication Plan and expand the Inbound Integrations view by clicking the blue '2 Configured' link
-3. Click into the 'Create Contact' link and scroll to the the bottom of the page to Copy the Trigger. (Confirm URL Authentication as authentication method in Step 4). Copy the Trigger as it will be used for our Salesforce Setup 
-*https://xxx.xmatters.com/api/integration/1/functions/xxx-xxx-xxx-xxx/triggers?apiKey=xxx
+3. Click into the 'Create Contact' link and scroll to the the bottom of the page to Copy the Trigger. 
+* Confirm URL Authentication as authentication method in Step 4. 
+* Copy the Trigger as it will be used for our Salesforce Setup 
+* Example: https://xxx.xmatters.com/api/integration/1/functions/xxx-xxx-xxx-xxx/triggers?apiKey=xxx
 4. Repeat Step 3 for 'Delete Contact'
 
 
@@ -65,8 +67,9 @@ The following section covers installation details
 ## Adding a New User
 1. While Logged into Salesforce, Navigate to a Contact Record
 2. Select 'Edit' Contact Record, Check the Sync With xMatters Checkbox and Save
-3. While Logged into xMatters, Navigate to xMatters Reports Tab and search for an 'xMatters Person' event 
-(New Search -> Message Subject contains 'xMatters Person'). Find xMatters Person [Create New].
+3. While Logged into xMatters, Navigate to xMatters Reports Tab and search for an 'xMatters Person' event
+* New Search -> Message Subject contains 'xMatters Person'
+* Find xMatters Person [Create New].
 4. Confirm User has been Created in the Users Section
 5. Confirm Group has been Created in the Groups Section
 6. If Event, User or Group is Missing Check [xMatters Activity Stream](https://help.xmatters.com/OnDemand/xmodwelcome/integrationbuilder/activity-stream.htm)
@@ -76,7 +79,8 @@ The following section covers installation details
 1. While Logged into Salesforce, Navigate to a Contact Record
 2. Select 'Edit' Contact Record, Confirm the Sync With xMatters Checkbox is selected and Edit The User Data. Click Save
 3. While Logged into xMatters, Navigate to xMatters Reports Tab and search for an 'xMatters Person' event 
-(New Search -> Message Subject contains 'xMatters Person'). Find xMatters Person [Update].
+* New Search -> Message Subject contains 'xMatters Person')
+* Find xMatters Person [Update].
 4. Confirm User has been Updated in the Users Section
 5. If Event, User or Group is Missing Check [xMatters Activity Stream](https://help.xmatters.com/OnDemand/xmodwelcome/integrationbuilder/activity-stream.htm)
 6. If Activity Stream is Empty, Check your  [Salesforce Execution Logs](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_debugging_system_log_console.htm)
@@ -85,7 +89,8 @@ The following section covers installation details
 1. While Logged into Salesforce, Navigate to a Contact Record
 2. Select 'Edit' Contact Record, Uncheck the Sync With xMatters Checkbox and Save
 3. While Logged into xMatters, Navigate to xMatters Reports Tab and search for an 'xMatters Person' event 
-(New Search -> Message Subject contains 'xMatters Person'). Find xMatters Person [Delete].
+* New Search -> Message Subject contains 'xMatters Person'. 
+* Find xMatters Person [Delete].
 4. Confirm User has been Removed in the Users Section
 5. If the User is the only Member of the Group Roster, Group should be Deleted
 6. If Event is missing, User or Group has not been deleted Check [xMatters Activity Stream](https://help.xmatters.com/OnDemand/xmodwelcome/integrationbuilder/activity-stream.htm)
