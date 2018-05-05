@@ -1,6 +1,6 @@
 trigger xmattersSyncContactTrigger on Contact (after update) {
 	if (Trigger.New[0].Sync_With_xMatters__c){
-	String endpoint			= 'https://brandonwalton.cs1.xmatters.com/api/integration/1/functions/78638587-af54-4bca-a7df-d210fa5b4cb4/triggers?apiKey=a8481e27-d2a0-49dd-9db1-2cc19399f903';
+	String endpoint			= '*Add your 'Create Contact' xMatters Trigger URL here - https://xxx.xmatters.com/api/integration/1/functions/xxx-xxx-xxx-xxx/triggers?apiKey=xxx';
 
 	string firstname		= '"FirstName":' + '"' + Trigger.New[0].FirstName + '"';
 	string lastname			= '"LastName":' + '"' + Trigger.New[0].LastName + '"';
@@ -14,7 +14,7 @@ trigger xmattersSyncContactTrigger on Contact (after update) {
 	String payload	= '{' + ContactUid + ',' + lastname + ',' + firstname + ',' + mobilephone + ',' + phone + ',' + email + ',' + department + ',' + accountname + '}';
             xMattersreq.xRESTCall(endpoint, payload); 
     } else {
-	String endpoint			= 'https://brandonwalton.cs1.xmatters.com/api/integration/1/functions/df58970a-c9c3-417f-bf86-7e408554cb48/triggers?apiKey=f7e77f04-6e36-4c87-b35d-d6f044ff49d0';
+	String endpoint			= '*Add your 'Delete Contact' xMatters Trigger URL here - https://xxx.xmatters.com/api/integration/1/functions/xxx-xxx-xxx-xxx/triggers?apiKey=xxx';
 
 	string firstname		= '"FirstName":' + '"' + Trigger.New[0].FirstName + '"';
 	string lastname			= '"LastName":' + '"' + Trigger.New[0].LastName + '"';

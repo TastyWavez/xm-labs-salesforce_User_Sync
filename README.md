@@ -1,5 +1,8 @@
 
 # Salesforce Data Sync
+* Version 1.0 of Salesforce Customer Data Sync
+* Written by B. Walton 5.4.2018
+
 This Salesforce Data Sync Add-on is designed to sync Salesforce CONTACTS with xMatters using a custom APEX trigger on the contact record (xmattersSyncContactTrigger.apxt).  
 
 
@@ -8,10 +11,8 @@ This Salesforce Data Sync Add-on is designed to sync Salesforce CONTACTS with xM
 </kbd>
 
 # Pre-Requisites
-* Version 1.0 of Salesforce Customer Data Sync
-* Written by B. Walton 5.4.2018
-* xMatters account - If you don't have one, [get one](https://www.xmatters.com)!
-* Salesforce account - If you don't have one, you can setup a free Developer Org with Salesforce [Salesforce Developer Org](https://developer.salesforce.com)!
+* xMatters account - If you don't have one, get started with [xMatters](https://www.xmatters.com)
+* Salesforce account - If you don't have one, you can setup a free  [Salesforce Developer Org](https://developer.salesforce.com)
 
 # Files
 * [SalesForceDataSync.zip](SalesForceDataSync.zip) - xMatters Communication Plan for Salesforce Data Sync 
@@ -24,38 +25,71 @@ This Salesforce Data Sync Add-on is designed to sync Salesforce CONTACTS with xM
 
 
 # How it works
-This integration uses a custom property added to the Salesforce Contact Record.  We've added a custom property An action happens in Application XYZ which triggers the thingamajig to fire a REST API call to the xMatters inbound integration on the imported communication plan. The integration script then parses out the payload and builds an event and passes that to xMatters. 
+This Integration uses a custom property added to the Salesforce Contact Record.  Using a Trigger on the Contact Record, Salesforce sends user Details to xMatters Integration Builder to process the Sync, either Create/Updating Contact or Deleting the Contact.
+* This Integration uses the Salesforce Unique Identifier as the xMatters Login.
+* Additional Modifications Could be made to Sync with Salesforce Users, or to Create xMatters Login with other properties. Those are not covered in this Integration. 
+* [Contact xMatters Consulting Services if you'd like assistance with Modifications and Customizations](mailto:bwalton@xmatters.com)
 
 # Installation
-Details of the installation go here. 
+The following section covers installation details 
 
 ## xMatters set up
-1. Steps to create a new Shared Library or (in|out)bound integration or point them to the xMatters online help to cover specific steps; i.e., import a communication plan (link: http://help.xmatters.com/OnDemand/xmodwelcome/communicationplanbuilder/exportcommplan.htm)
-2. Add this code to some place on what page:
-   ```
-   var items = [];
-   items.push( { "stuff": "value"} );
-   console.log( 'Do stuff' );
-   ```
+1. Import [SalesForceDataSync.zip](SalesForceDataSync.zip) Communication Plan
+2. Navigate to the 'Integration Builder' Section of the Communication Plan and expand the Inbound Integrations view by clicking the blue '2 Configured' link
+3. Click into the 'Create Contact' link and scroll to the the bottom of the page to Copy the Trigger. (Confirm URL Authentication as authentication method in Step 4). Copy the Trigger as it will be used for our Salesforce Setup 
+*https://xxx.xmatters.com/api/integration/1/functions/xxx-xxx-xxx-xxx/triggers?apiKey=xxx
+4. Repeat Step 3 for 'Delete Contact'
 
 
 ## Salesforce set up
-Any specific steps for setting up the target application? The more precise you can be, the better!
-
-Images are encouraged. Adding them is as easy as:
-```
-<kbd>
-  <img src="media/cat-tax.png" width="200" height="400">
-</kbd>
-```
-
-<kbd>
-  <img src="media/cat-tax.png" width="200" height="400">
-</kbd>
-
+1. Setup xMatters as a 'Remote Site': [Adding Remote Site Settings](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_callouts_remote_site_settings.htm)
+2. Open your Salesforce Developer Console: [Steps for Opening Developer Console] (https://help.salesforce.com/articleView?id=code_dev_console_opening.htm&type=5)
+3. From the Developer Console, Copy APEX Triggers & Classes from this Repository into your Salesforce Org Instance by creating new APEX Triggers & Classes (File -> New -> Apex Class || Apex Trigger)
+* Be sure file names are created correctly and Test classes are loaded
+4. On the [xmattersSyncContactTrigger.apxt](xmattersSyncContactTrigger.apxt) Trigger. 
+* Update the String endpoint on line 3 with the xMatters 'Create Contact' link, from your xMatters Communication Plan.
+* Update the String endpoint on line 17 with the xMatters 'Delete Contact' link, from your xMatters Communication Plan.
+* Update the Payload with the fields you will be sharing with xMatters.  For this Use Case, Department will be used as the xMatters Group for this User.
+* Save Changes
+5. Navigate back to your Salesforce Admin Menu and type 'Contact' in your 'Quick Search' menu to add a new Field to the Contact Record
+*[Adding New Fields to Records in Salesforce](https://help.salesforce.com/articleView?id=adding_fields.htm&type=5)
+6. Add a new Field with the following Properties:
+* Field Data Type = CheckBox
+* Field Name = Sync_With_xMatters
+* Field Label = Sync With xMatters
+* Save and confirm new Checkbox field with API Name Sync_With_xMatters__c has been created on the Contact Record
+7. Add New Field to Contact Layout Page
+* [Customizing Page Layouts with the Page Layout Editor](https://help.salesforce.com/articleView?id=customize_layoutcustomize_ple.htm&type=5)
 
 # Testing
-Be specific. What should happen to make sure this code works? What would a user expect to see? 
+## Adding a New User
+1. While Logged into Salesforce, Navigate to a Contact Record
+2. Select 'Edit' Contact Record, Check the Sync With xMatters Checkbox and Save
+3. While Logged into xMatters, Navigate to xMatters Reports Tab and search for an 'xMatters Person' event (New Search -> Message Subject contains 'xMatters Person'). Find xMatters Person [Create New].
+4. Confirm User has been Created in the Users Section
+5. Confirm Group has been Created in the Groups Section
+6. If Event, User or Group is Missing Check [xMatters Activity Stream](https://help.xmatters.com/OnDemand/xmodwelcome/integrationbuilder/activity-stream.htm)
+7. If Activity Stream is Empty, Check your  [Salesforce Execution Logs](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_debugging_system_log_console.htm)
+
+## Updating a User
+1. While Logged into Salesforce, Navigate to a Contact Record
+2. Select 'Edit' Contact Record, Confirm the Sync With xMatters Checkbox is selected and Edit The User Data. Click Save
+3. While Logged into xMatters, Navigate to xMatters Reports Tab and search for an 'xMatters Person' event (New Search -> Message Subject contains 'xMatters Person'). Find xMatters Person [Update].
+4. Confirm User has been Updated in the Users Section
+5. If Event, User or Group is Missing Check [xMatters Activity Stream](https://help.xmatters.com/OnDemand/xmodwelcome/integrationbuilder/activity-stream.htm)
+6. If Activity Stream is Empty, Check your  [Salesforce Execution Logs](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_debugging_system_log_console.htm)
+
+## Deleting a User
+## Updating a New User
+1. While Logged into Salesforce, Navigate to a Contact Record
+2. Select 'Edit' Contact Record, Uncheck the Sync With xMatters Checkbox and Save
+3. While Logged into xMatters, Navigate to xMatters Reports Tab and search for an 'xMatters Person' event (New Search -> Message Subject contains 'xMatters Person'). Find xMatters Person [Delete].
+4. Confirm User has been Removed in the Users Section
+5. If the User is the only Member of the Group Roster, Group should be Deleted
+6. If Event is missing, User or Group has not been deleted Check [xMatters Activity Stream](https://help.xmatters.com/OnDemand/xmodwelcome/integrationbuilder/activity-stream.htm)
+7. If Activity Stream is Empty, Check your  [Salesforce Execution Logs](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_debugging_system_log_console.htm)
 
 # Troubleshooting
-Optional section for how to troubleshoot. Especially anything in the source application that an xMatters developer might not know about, or specific areas in xMatters to look for details - like the Activity Stream? 
+Trouble? Check for errors and additional information in the following places:
+1. [Check xMatters Activity Stream](https://help.xmatters.com/OnDemand/xmodwelcome/integrationbuilder/activity-stream.htm)
+2. [Check Salesforce Logs](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_debugging_system_log_console.htm)
