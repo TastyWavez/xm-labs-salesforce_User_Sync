@@ -17,7 +17,6 @@ This Salesforce Data Sync Add-on is designed to sync Salesforce Contact Records 
 # Files
 * [SalesForceDataSync.zip](SalesForceDataSync.zip) - xMatters Communication Plan for Salesforce Data Sync 
 * [xMattersHttpCalloutMock.apxc](xMattersHttpCalloutMock.apxc) - APEX Class for xMatters HTTP Mock Callouts.  Required to pass Code Coverage in Salesforce. Add this file to your Salesforce Developer Console.
-* [xMattersHttpCalloutMock.apxc](xMattersHttpCalloutMock.apxc) - APEX Class for xMatters HTTP Mock Callouts.  Required to pass Code Coverage in Salesforce. Add this file to your Salesforce Developer Console.
 * [xMattersTest.apxc](xMattersTest.apxc) - APEX Class for testing xMatters HTTP Mock Callouts.  Required to pass Code Coverage in Salesforce. Add this file to your Salesforce Developer Console.
 * [xMattersreq.apxc](xMattersreq.apxc) - APEX Class for sending HTTP Calls to xMatters. Add this file to your Salesforce Developer Console.
 * [xmattersSyncContactTrigger.apxt](xmattersSyncContactTrigger.apxt) - APEX Trigger for initiating HTTP Call to xMatters.  This Trigger also creates the Payload used for the injection. Customize this to modify the Salesforce Fields being sent to xMatters (Only if you know what you're doing). Add this file to your Salesforce Developer Console.
@@ -28,6 +27,9 @@ This Integration uses a custom property added to the Salesforce Contact Record. 
 * This Integration uses the Salesforce Unique Identifier as the xMatters Login.
 * Additional Modifications Could be made to Sync with Salesforce Users, or to Create xMatters Login with other properties. Those are not covered in this Integration. 
 * Contact [xMatters Consulting Services](mailto:bwalton@xmatters.com) if you'd like assistance with Modifications and Customizations
+
+## Communication Plan Components
+###[SalesForceDataSync.zip](SalesForceDataSync.zip) Communication Plan
 
 # Installation
 The following section covers installation details 
