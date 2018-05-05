@@ -24,12 +24,42 @@ This Salesforce Data Sync Add-on is designed to sync Salesforce Contact Records 
 
 # How it works
 This Integration uses a custom property added to the Salesforce Contact Record.  Using a Trigger on the Contact Record, Salesforce sends user Details to xMatters Integration Builder to process the Sync, either Create/Updating Contact or Deleting the Contact.
-* This Integration uses the Salesforce Unique Identifier as the xMatters Login.
-* Additional Modifications Could be made to Sync with Salesforce Users, or to Create xMatters Login with other properties. Those are not covered in this Integration. 
+* Assumes Salesforce is the Master Record for the Sync (This version makes no updates to Salesforce Records)
+* Salesforce [Unique Identifier](https://help.salesforce.com/articleView?id=000004383&language=en_US&type=1) as the xMatters Login.
+* Additional Modifications can be made to Sync with Salesforce Users, or to Create xMatters Login with other properties. Those are not covered in this Integration. 
 * Contact [xMatters Consulting Services](mailto:bwalton@xmatters.com) if you'd like assistance with Modifications and Customizations
 
 ## Communication Plan Components
-###[SalesForceDataSync.zip](SalesForceDataSync.zip) Communication Plan
+This Section explains the Components of the xMatters [SalesForceDataSync.zip](SalesForceDataSync.zip) Communication Plan.
+If you're Unfamiliar with xMatters Communication Plans, learn more [here](https://help.xmatters.com/OnDemand/xmodwelcome/communicationplanbuilder/managecommunicationplans.htm)
+
+####Forms
+**Customer Sync Initiated -** Used to provide a notification record of the Sync process in xMatters.  
+1. Layout - Recipients should be added in the 'Recipients' section of the Form Layout. If modifications will be made to the Salesforce Payload, it's recommended to update or add Properties.
+2. Message - Email Notification is the only type in Use. the 'Type' Property is used to determine the Sync Process, which will be one of the following:
+* Create New - Sync is Creating a New User in xMatters
+* Update - Sync is Update a User in xMatters
+* Delete - Sync is Deleting a User in xMatters.
+3. Responses - Not Used in this Integration
+
+####Integration Builder
+**Inbound Integrations**
+1. Create Contact - Used to Create or Update xMatters User
+2. Delete Contact - Used to Delete xMatters User
+
+**Shared Libraries**
+1. moment - used for capturing time and making it human-readable
+2. moment- timezone - adds a TimeZone feature to moment
+3. xmAPI - repository for xMatters API Calls
+
+**Constants**
+1. GroupAllowDuplicates - Toggle permission of duplicate Groups in xmAPI (default is **false**)
+2. GroupOvservedByAll - Toggle Group visibility in xmAPI (default is **true**)
+3. GroupStatus - Toggle whether Group status should be active or inactive (default is **active**)
+4. GroupUseDefaultDevice - Toggle whether Default Devices should be used (default is **true**)
+5. NameEmail - Name of Email device being Synced (default is **Work Email**)
+6. NameSMS - Name of SMS device being Synced (default is **SMS Phone**)
+7. NameVoice - Name of Voice device being Synced (default is **Work Phone**)
 
 # Installation
 The following section covers installation details 
