@@ -89,6 +89,10 @@ The following section covers installation details
 7. If Activity Stream is Empty, Check your  [Salesforce Execution Logs](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_debugging_system_log_console.htm)
 
 # Troubleshooting
-Trouble? Check for errors and additional information in the following places:
+Still Having Issues?
+
+Check for errors and additional information in the following places:
 1. [Check xMatters Activity Stream](https://help.xmatters.com/OnDemand/xmodwelcome/integrationbuilder/activity-stream.htm)
 2. [Check Salesforce Logs](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_debugging_system_log_console.htm)
+
+Or Contact xMatters Consulting Services if You'd like to setup an engagement: [Contact Consulting Services](mailto:bwalton@xmatters.com)
