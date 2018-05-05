@@ -35,7 +35,8 @@ The following section covers installation details
 
 ## xMatters set up
 1. Import [SalesForceDataSync.zip](SalesForceDataSync.zip) Communication Plan
-2. Navigate to the 'Integration Builder' Section of the Communication Plan and expand the Inbound Integrations view by clicking the blue '2 Configured' link
+2. Navigate to the 'Integration Builder' Section of the Communication Plan and expand the Inbound Integrations view
+* Do this by clicking the blue '2 Configured' link
 3. Click into the 'Create Contact' link and scroll to the the bottom of the page to Copy the Trigger. 
 * Confirm URL Authentication as authentication method in Step 4. 
 * Copy the Trigger as it will be used for our Salesforce Setup 
